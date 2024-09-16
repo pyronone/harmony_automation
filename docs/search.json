@@ -14,9 +14,59 @@
     "href": "core.html",
     "title": "00_core",
     "section": "",
-    "text": "00 init fxs\n\nsource\n\nfp\n\n fp (relative_fp:str, base_dir:str='.')\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nrelative_fp\nstr\n\nstr - eg. “../dir/file.txt”\n\n\nbase_dir\nstr\n.\nstr\n\n\nReturns\nstr\n\nstr\n\n\n\n\nsource\n\n\nreturn_yaml_data\n\n return_yaml_data (file_path:str)\n\n…\n\n\n\n\nType\nDetails\n\n\n\n\nfile_path\nstr\nstr\n\n\nReturns\ndict\ndict\n\n\n\n\nsource\n\n\nget_latest_chromedriver\n\n get_latest_chromedriver (chromedriver_path:str=None, dl_path:str=None)\n\nDownload latest stable chromedriver for win64.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nchromedriver_path\nstr\nNone\nstr - if None, uses default path specified in config.yaml\n\n\ndl_path\nstr\nNone\nstr - if None, uses default path specified in config.yaml\n\n\nReturns\nNone\n\n\n\n\n\n\n\n\n01 find xpath elements\n\nsource\n\nsearch_for_xpath_elem\n\n search_for_xpath_elem (xpath_str:str, time_limit:int=30)\n\nWhile len of search list is 0, keep searching. If exceeds time limit (seconds, approximate), returns empty list.\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nxpath_str\nstr\n\nstr\n\n\ntime_limit\nint\n30\nint\n\n\nReturns\nlist\n\nList[WebElement]\n\n\n\n\n\n\n02 load data\n\nsource\n\nreturn_data\n\n return_data ()\n\nLoad and clean one of the output files created from the update script - for_log_tracker_...xlsx\n\n\n\n03 harmony specific actions\n\nsource\n\nreassign_log\n\n reassign_log (note:str)\n\nActions to execute on ticket number search results page\n\n\n\n\nType\nDetails\n\n\n\n\nnote\nstr\nstr\n\n\nReturns\nNone\n\n\n\n\n\nsource\n\n\nsubmit_res\n\n submit_res ()\n\nClicks submit\n\nsource\n\n\nedit_res\n\n edit_res (comment='done')\n\nAdd comment to resolution input box\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\ncomment\nstr\ndone\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\nsource\n\n\nclick_edit_log\n\n click_edit_log ()\n\nClicks edit button\n\nsource\n\n\nview_log\n\n view_log ()\n\nClicks view log of search result\n\nsource\n\n\nsearch_ticket_num\n\n search_ticket_num (ticket_num:str)\n\nGo to ticket number search page and search for ticket_num\n\n\n\n\nType\nDetails\n\n\n\n\nticket_num\nstr\nstr\n\n\nReturns\nNone\n\n\n\n\n\nsource\n\n\nlogin\n\n login ()\n\nLog in to Harmony. Credentials stored in cfg/config.yaml\n\n\n\n04 scrape fxs\n\nsource\n\nscraped_notes_to_df\n\n scraped_notes_to_df (input_ticket_strs:list)\n\n\n\n\n\n\n\n\n\n\nType\nDetails\n\n\n\n\ninput_ticket_strs\nlist\nlist[str] - eg. [‘1234567890 123456 -’, ‘2234567890 223456 -’]\n\n\nReturns\nDataFrame\npd.DataFrame - 1st col is input_ticket_strs, 2nd col is scraped/formatted notes/comments\n\n\n\n\n\n\n05 export logs\n\nsource\n\nexport_all_logs\n\n export_all_logs ()\n\nExport and saves all logs in cwd. Saves in both parquet and xlsx formats.",
+    "text": "source\n\n\n\n fp (relative_fp:str, base_dir:str='.')\n\nFor referencing relative file paths in package directory.\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nrelative_fp\nstr\n\nstr - eg. “../dir/file.txt”\n\n\nbase_dir\nstr\n.\nstr\n\n\nReturns\nstr\n\nstr\n\n\n\n\nsource\n\n\n\n\n read_yaml_data (file_path:str)\n\n…\n\n\n\n\nType\nDetails\n\n\n\n\nfile_path\nstr\nstr\n\n\nReturns\ndict\ndict\n\n\n\n\nsource\n\n\n\n\n yaml_helper (fpath:str='./config.yaml', mode:str='r', data:dict=None)\n\nHelper function to read, write, append to files in yaml format. Checks for duplicate keys if reading or appending.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nfpath\nstr\n./config.yaml\nstr\n\n\nmode\nstr\nr\nstr - r / a / w\n\n\ndata\ndict\nNone\ndict - cannot be None if writing or appending\n\n\nReturns\ndict\n\ndict - data if reading, {‘r’: 0} if writing/appending\n\n\n\n\nsource\n\n\n\n\n get_latest_chromedriver (chromedriver_path:str=None, dl_path:str=None)\n\nDownload latest stable chromedriver for win64.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nchromedriver_path\nstr\nNone\nstr - if None, uses default path specified in config.yaml\n\n\ndl_path\nstr\nNone\nstr - if None, uses default path specified in config.yaml\n\n\nReturns\nNone",
     "crumbs": [
       "00_core"
+    ]
+  },
+  {
+    "objectID": "core.html#login",
+    "href": "core.html#login",
+    "title": "00_core",
+    "section": "login",
+    "text": "login\n\nsource\n\nlogin\n\n login ()\n\nLog in to Harmony. Credentials stored in cfg/config.yaml",
+    "crumbs": [
+      "00_core"
+    ]
+  },
+  {
+    "objectID": "core.html#search-ticket",
+    "href": "core.html#search-ticket",
+    "title": "00_core",
+    "section": "search ticket",
+    "text": "search ticket\n\nsource\n\nsearch_ticket_num\n\n search_ticket_num (ticket_num:str)\n\nGo to ticket number search page and search for ticket_num\n\n\n\n\nType\nDetails\n\n\n\n\nticket_num\nstr\nticket #\n\n\nReturns\nNone",
+    "crumbs": [
+      "00_core"
+    ]
+  },
+  {
+    "objectID": "core.html#for-closing-logs",
+    "href": "core.html#for-closing-logs",
+    "title": "00_core",
+    "section": "for closing logs",
+    "text": "for closing logs\n\nsource\n\nchk_resolution_submitted\n\n chk_resolution_submitted ()\n\nCheck if resolution successfully submitted and we are now on ticket view page w/ Back button and Timeline button. Needed because Harmony can be glitchy sometimes.\n\nsource\n\n\nsubmit_res\n\n submit_res ()\n\nClicks submit\n\nsource\n\n\nedit_res\n\n edit_res (comment:str='done')\n\nAdd comment to resolution input box\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\ncomment\nstr\ndone\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\nsource\n\n\nclick_edit_log\n\n click_edit_log ()\n\nClicks edit button\n\nsource\n\n\nview_log\n\n view_log ()\n\nClicks view log of search result",
+    "crumbs": [
+      "00_core"
+    ]
+  },
+  {
+    "objectID": "core.html#for-re-assigning-logs",
+    "href": "core.html#for-re-assigning-logs",
+    "title": "00_core",
+    "section": "for re-assigning logs",
+    "text": "for re-assigning logs\n\nsource\n\nreassign_log\n\n reassign_log (note:str)\n\nActions to execute on ticket # search results page - re-assigns to colleague listed in CFG.\n\n\n\n\nType\nDetails\n\n\n\n\nnote\nstr\nstr\n\n\nReturns\nNone",
+    "crumbs": [
+      "00_core"
+    ]
+  },
+  {
+    "objectID": "tracker.html",
+    "href": "tracker.html",
+    "title": "01_tracker",
+    "section": "",
+    "text": "00 fxs\n\nsource\n\nscrape_and_concat\n\n scrape_and_concat ()\n\nLoad and clean exported logs and identify which logs have no notes and need to be scraped. Run scrape and concatenate result with logs that already have notes added.\nFor reference, here is what the final result looks like:\n\n\nCode\n# * DOC\ndf = pd.read_excel(\"../tmp/c.xlsx\")\ndf\n\n\n\n\n\n\n\n\n\ndate_created\ntype_1\ntype_2\ndate_followup\nmember_name\ndiv\nnotes\nmisc\nkey\nticket_num\nee_num\nticket_str\n\n\n\n\n0\nSep 16, 2024\nIncoming Call\nDB/DC: Death Reported\nSep 17, 2024\nDoe, Jane\nSEARS\n! 1234567 - \\n\\nExecutor ... called to report ...\n.\nDoe, Jane45551Incoming CallDB/DC: Death Report...\n240945524\n1234567\n240945524 1234567 -\n\n\n1\nSep 12, 2024\nTP Incoming Call\nDB/DC: Death Reported\nSep 13, 2024\nDoe, John\nSEARS\n2234567 - \\n[md:Aug 26, 2024][sdod:May 14, 202...\n.\nDoe, John45547TP Incoming CallDB/DC: Death Rep...\n240935492\n2234567\n240935492 2234567 -\n\n\n\n\n\n\n\n\n\nCode\n# * DOC\nprint(\"\\n\\n---\\n\\n\".join(df[\"notes\"].tolist()))\n\n\n! 1234567 - \n\nExecutor ... called to report death of ...  DOD 01/02/2024  Address 123 Sesame St, ... Home 9051234567 ...\n\n-\nhttps://harmony.rest_of_url\n\n---\n\n2234567 - \n[md:Aug 26, 2024][sdod:May 14, 2024] // 123 Sesame St, Toronto, ON  M5V 2S8 // 905-123-4567\n \nNotes are formatted in a way that the update package can extract data from text using regex.\n\nhttps://harmony.rest_of_url",
+    "crumbs": [
+      "01_tracker"
     ]
   }
 ]
