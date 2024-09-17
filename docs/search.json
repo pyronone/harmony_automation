@@ -40,21 +40,21 @@
     ]
   },
   {
-    "objectID": "core.html#for-closing-logs",
-    "href": "core.html#for-closing-logs",
+    "objectID": "core.html#close-logs",
+    "href": "core.html#close-logs",
     "title": "00_core",
-    "section": "for closing logs",
-    "text": "for closing logs\n\nsource\n\nchk_resolution_submitted\n\n chk_resolution_submitted ()\n\nCheck if resolution successfully submitted and we are now on ticket view page w/ Back button and Timeline button. Needed because Harmony can be glitchy sometimes.\n\nsource\n\n\nsubmit_res\n\n submit_res ()\n\nClicks submit\n\nsource\n\n\nedit_res\n\n edit_res (comment:str='done')\n\nAdd comment to resolution input box\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\ncomment\nstr\ndone\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\nsource\n\n\nclick_edit_log\n\n click_edit_log ()\n\nClicks edit button\n\nsource\n\n\nview_log\n\n view_log ()\n\nClicks view log of search result",
+    "section": "close logs",
+    "text": "close logs\n\nsource\n\nchk_resolution_submitted\n\n chk_resolution_submitted ()\n\nCheck if resolution successfully submitted and we are now on ticket view page w/ Back button and Timeline button. Needed because Harmony can be glitchy sometimes.\n\nsource\n\n\nsubmit_res\n\n submit_res ()\n\nClicks submit\n\nsource\n\n\nedit_res\n\n edit_res (comment:str='done')\n\nAdd comment to resolution input box\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\ncomment\nstr\ndone\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\nsource\n\n\nclick_edit_log\n\n click_edit_log ()\n\nClicks edit button\n\nsource\n\n\nview_log\n\n view_log ()\n\nClicks view log of search result\n\nsource\n\n\nclose_log\n\n close_log (ticket_num:Union[str,int])\n\n…\n\n\n\n\nType\nDetails\n\n\n\n\nticket_num\ntyping.Union[str, int]\nUnion[str, int]\n\n\nReturns\nint\nreturns 0 if successfully closed",
     "crumbs": [
       "00_core"
     ]
   },
   {
-    "objectID": "core.html#for-re-assigning-logs",
-    "href": "core.html#for-re-assigning-logs",
+    "objectID": "core.html#re-assign-logs",
+    "href": "core.html#re-assign-logs",
     "title": "00_core",
-    "section": "for re-assigning logs",
-    "text": "for re-assigning logs\n\nsource\n\nreassign_log\n\n reassign_log (note:str)\n\nActions to execute on ticket # search results page - re-assigns to colleague listed in CFG.\n\n\n\n\nType\nDetails\n\n\n\n\nnote\nstr\nstr\n\n\nReturns\nNone",
+    "section": "re-assign logs",
+    "text": "re-assign logs\n\nsource\n\nreassign_log\n\n reassign_log (note:str)\n\nActions to execute on ticket # search results page - re-assigns to colleague listed in config.yaml\n\n\n\n\nType\nDetails\n\n\n\n\nnote\nstr\nstr\n\n\nReturns\nNone",
     "crumbs": [
       "00_core"
     ]
@@ -64,7 +64,7 @@
     "href": "tracker.html",
     "title": "01_tracker",
     "section": "",
-    "text": "00 fxs\n\nsource\n\nscrape_and_concat\n\n scrape_and_concat ()\n\nLoad and clean exported logs and identify which logs have no notes and need to be scraped. Run scrape and concatenate result with logs that already have notes added.\nFor reference, here is what the final result looks like:\n\n\nCode\n# * DOC\ndf = pd.read_excel(\"../tmp/c.xlsx\")\ndf\n\n\n\n\n\n\n\n\n\ndate_created\ntype_1\ntype_2\ndate_followup\nmember_name\ndiv\nnotes\nmisc\nkey\nticket_num\nee_num\nticket_str\n\n\n\n\n0\nSep 16, 2024\nIncoming Call\nDB/DC: Death Reported\nSep 17, 2024\nDoe, Jane\nSEARS\n! 1234567 - \\n\\nExecutor ... called to report ...\n.\nDoe, Jane45551Incoming CallDB/DC: Death Report...\n240945524\n1234567\n240945524 1234567 -\n\n\n1\nSep 12, 2024\nTP Incoming Call\nDB/DC: Death Reported\nSep 13, 2024\nDoe, John\nSEARS\n2234567 - \\n[md:Aug 26, 2024][sdod:May 14, 202...\n.\nDoe, John45547TP Incoming CallDB/DC: Death Rep...\n240935492\n2234567\n240935492 2234567 -\n\n\n\n\n\n\n\n\n\nCode\n# * DOC\nprint(\"\\n\\n---\\n\\n\".join(df[\"notes\"].tolist()))\n\n\n! 1234567 - \n\nExecutor ... called to report death of ...  DOD 01/02/2024  Address 123 Sesame St, ... Home 9051234567 ...\n\n-\nhttps://harmony.rest_of_url\n\n---\n\n2234567 - \n[md:Aug 26, 2024][sdod:May 14, 2024] // 123 Sesame St, Toronto, ON  M5V 2S8 // 905-123-4567\n \nNotes are formatted in a way that the update package can extract data from text using regex.\n\nhttps://harmony.rest_of_url",
+    "text": "00 fxs\n\nsource\n\nscrape_and_concat\n\n scrape_and_concat ()\n\nLoad and clean exported logs and identify which logs have no notes and need to be scraped. Run scrape and concatenate result with logs that already have notes added.\nFor reference, here is what the final result looks like:\n\n\nCode\n# * DOC\ndf = pd.read_excel(\"../tmp/c.xlsx\")\ndf\n\n\n\n\n\n\n\n\n\ndate_created\ntype_1\ntype_2\ndate_followup\nmember_name\ndiv\nnotes\nmisc\nkey\nticket_num\nee_num\nticket_str\n\n\n\n\n0\nSep 16, 2024\nIncoming Call\nDB/DC: Death Reported\nSep 17, 2024\nDoe, Jane\nSEARS\n! 1234567 - \\n\\nExecutor ... called to report ...\n.\nDoe, Jane45551Incoming CallDB/DC: Death Report...\n240945524\n1234567\n240945524 1234567 -\n\n\n1\nSep 12, 2024\nTP Incoming Call\nDB/DC: Death Reported\nSep 13, 2024\nDoe, John\nSEARS\n2234567 - \\n[md:Aug 26, 2024][sdod:May 14, 202...\n.\nDoe, John45547TP Incoming CallDB/DC: Death Rep...\n240935492\n2234567\n240935492 2234567 -\n\n\n\n\n\n\n\n\n\nCode\n# * DOC\nprint(\"\\n\\n---\\n\\n\".join(df[\"notes\"].tolist()))\n\n\n! 1234567 - \n\nExecutor ... called to report death of ...  DOD 01/02/2024  Address 123 Sesame St, ... Home 9051234567 ...\n\n-\nhttps://harmony.rest_of_url\n\n---\n\n2234567 - \n[md:Aug 26, 2024][sdod:May 14, 2024] // 123 Sesame St, Toronto, ON  M5V 2S8 // 905-123-4567\n \nNotes are formatted in a way that the update package can extract data from text using regex.\n\nhttps://harmony.rest_of_url\n\n\nThe above result would be added to an excel tracking file where the scraped notes are formatted. The tracking file also pulls data from various reports and databases via Power Query, to be used as input for a separate update package/process.",
     "crumbs": [
       "01_tracker"
     ]
