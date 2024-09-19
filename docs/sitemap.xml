@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pyronone.github.io/harmony_automation/index.html</loc>
-    <lastmod>2024-06-02T17:22:04.507Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pyronone.github.io/harmony_automation/core.html</loc>
-    <lastmod>2024-09-17T15:28:45.156Z</lastmod>
+    <lastmod>2024-09-19T18:25:23.016Z</lastmod>
   </url>
   <url>
     <loc>https://pyronone.github.io/harmony_automation/tracker.html</loc>
-    <lastmod>2024-09-17T15:39:29.499Z</lastmod>
+    <lastmod>2024-09-19T18:30:31.380Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pyronone.github.io/harmony_automation/core.html</loc>
+    <lastmod>2024-09-19T18:25:23.990Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pyronone.github.io/harmony_automation/bots.html</loc>
+    <lastmod>2024-09-19T18:25:24.021Z</lastmod>
   </url>
 </urlset>
