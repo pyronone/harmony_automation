@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="…">
+<meta name="description" content="For documentation purposes">
 
-<title>01_tracker – harmony_automation</title>
+<title>03_scripts – harmony_automation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -101,17 +101,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="01_tracker – harmony_automation">
-<meta property="og:description" content="…">
+<meta property="og:title" content="03_scripts – harmony_automation">
+<meta property="og:description" content="For documentation purposes">
 <meta property="og:site_name" content="harmony_automation">
-<meta name="twitter:title" content="01_tracker – harmony_automation">
-<meta name="twitter:description" content="…">
+<meta name="twitter:title" content="03_scripts – harmony_automation">
+<meta name="twitter:description" content="For documentation purposes">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -136,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tracker.html">01_tracker</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./scripts.html">03_scripts</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -162,7 +159,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tracker.html" class="sidebar-item-text sidebar-link active">
+  <a href="./tracker.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">01_tracker</span></a>
   </div>
 </li>
@@ -174,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./scripts.html" class="sidebar-item-text sidebar-link">
+  <a href="./scripts.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">03_scripts</span></a>
   </div>
 </li>
@@ -188,17 +185,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#fxs" id="toc-fxs" class="nav-link active" data-scroll-target="#fxs">00 fxs</a></li>
-  <li><a href="#trackerhelper" id="toc-trackerhelper" class="nav-link" data-scroll-target="#trackerhelper">01 TrackerHelper</a>
+  <li><a href="#update-tracker" id="toc-update-tracker" class="nav-link active" data-scroll-target="#update-tracker">00 update tracker</a>
   <ul class="collapse">
-  <li><a href="#trackerhelper-1" id="toc-trackerhelper-1" class="nav-link" data-scroll-target="#trackerhelper-1">TrackerHelper</a></li>
-  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">methods</a>
+  <li><a href="#init" id="toc-init" class="nav-link" data-scroll-target="#init">init</a></li>
+  <li><a href="#run" id="toc-run" class="nav-link" data-scroll-target="#run">run</a></li>
+  </ul></li>
+  <li><a href="#close-and-reassign" id="toc-close-and-reassign" class="nav-link" data-scroll-target="#close-and-reassign">01 close and reassign</a>
   <ul class="collapse">
-  <li><a href="#trackerhelper.scrape_and_concat" id="toc-trackerhelper.scrape_and_concat" class="nav-link" data-scroll-target="#trackerhelper.scrape_and_concat">TrackerHelper.scrape_and_concat</a></li>
-  <li><a href="#trackerhelper.update_gsheet" id="toc-trackerhelper.update_gsheet" class="nav-link" data-scroll-target="#trackerhelper.update_gsheet">TrackerHelper.update_gsheet</a></li>
+  <li><a href="#init-1" id="toc-init-1" class="nav-link" data-scroll-target="#init-1">init</a></li>
+  <li><a href="#fxs" id="toc-fxs" class="nav-link" data-scroll-target="#fxs">fxs</a></li>
+  <li><a href="#run-1" id="toc-run-1" class="nav-link" data-scroll-target="#run-1">run</a>
+  <ul class="collapse">
+  <li><a href="#close-logs" id="toc-close-logs" class="nav-link" data-scroll-target="#close-logs">close logs</a></li>
+  <li><a href="#re-assign" id="toc-re-assign" class="nav-link" data-scroll-target="#re-assign">re-assign</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#sample-results" id="toc-sample-results" class="nav-link" data-scroll-target="#sample-results">02 Sample results</a></li>
   </ul>
 </nav>
     </div>
@@ -207,12 +208,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">01_tracker</h1>
+<h1 class="title">03_scripts</h1>
 </div>
 
 <div>
   <div class="description">
-    …
+    For documentation purposes
   </div>
 </div>
 
@@ -230,295 +231,204 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<section id="fxs" class="level1">
-<h1>00 fxs</h1>
+<section id="update-tracker" class="level1">
+<h1>00 update tracker</h1>
+<section id="init" class="level2">
+<h2 class="anchored" data-anchor-id="init">init</h2>
+<div id="cell-4" class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> harmony_automation <span class="im">import</span> tracker <span class="im">as</span> trk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="cell-5" class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>helper <span class="op">=</span> trk.TrackerHelper()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sys.exit(<span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
-<section id="trackerhelper" class="level1">
-<h1>01 TrackerHelper</h1>
-<hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/tracker.py#L130" target="_blank" style="float:right; font-size:smaller">source</a></p>
-<section id="trackerhelper-1" class="level3">
-<h3 class="anchored" data-anchor-id="trackerhelper-1">TrackerHelper</h3>
-<blockquote class="blockquote">
-<pre><code> TrackerHelper (gsheet_cx:gspread.worksheet.Worksheet=None,
-                gsheet:pandas.core.frame.DataFrame=None)</code></pre>
-</blockquote>
-</section>
-<section id="methods" class="level2">
-<h2 class="anchored" data-anchor-id="methods">methods</h2>
-<hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/tracker.py#L241" target="_blank" style="float:right; font-size:smaller">source</a></p>
-<section id="trackerhelper.scrape_and_concat" class="level3">
-<h3 class="anchored" data-anchor-id="trackerhelper.scrape_and_concat">TrackerHelper.scrape_and_concat</h3>
-<blockquote class="blockquote">
-<pre><code> TrackerHelper.scrape_and_concat (_fp:str='../tmp/tmp.parquet',
-                                  skip_export:bool=False)</code></pre>
-</blockquote>
-<p>Export all logs and identify which logs have no notes and need to be scraped. Run scrape and concatenate result with logs that already have notes added.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Default</strong></th>
-<th><strong>Details</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>_fp</td>
-<td>str</td>
-<td>../tmp/tmp.parquet</td>
-<td>path to save/load exported logs</td>
-</tr>
-<tr class="even">
-<td>skip_export</td>
-<td>bool</td>
-<td>False</td>
-<td>for testing</td>
-</tr>
-<tr class="odd">
-<td><strong>Returns</strong></td>
-<td><strong>DataFrame</strong></td>
-<td></td>
-<td><strong>pd.DataFrame</strong></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/tracker.py#L293" target="_blank" style="float:right; font-size:smaller">source</a></p>
-</section>
-<section id="trackerhelper.update_gsheet" class="level3">
-<h3 class="anchored" data-anchor-id="trackerhelper.update_gsheet">TrackerHelper.update_gsheet</h3>
-<blockquote class="blockquote">
-<pre><code> TrackerHelper.update_gsheet (df:pandas.core.frame.DataFrame)</code></pre>
-</blockquote>
-<p>…</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Details</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>df</td>
-<td>DataFrame</td>
-<td>pd.DataFrame</td>
-</tr>
-<tr class="even">
-<td><strong>Returns</strong></td>
-<td><strong>None</strong></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-</section>
-<section id="sample-results" class="level1">
-<h1>02 Sample results</h1>
-<p>For reference, this is what the exported logs result looks like (data has been anonymized):</p>
-<div id="cell-10" class="cell">
-<details class="code-fold">
+<section id="run" class="level2">
+<h2 class="anchored" data-anchor-id="run">run</h2>
+<div id="cell-7" class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> helper.scrape_and_concat()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="cell-8" class="cell">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_parquet(<span class="st">"../tests/for_docs/tmp.parquet"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>helper.update_gsheet(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Follow-up</th>
-<th data-quarto-table-cell-role="th">Created</th>
-<th data-quarto-table-cell-role="th">Ticket #</th>
-<th data-quarto-table-cell-role="th">Type</th>
-<th data-quarto-table-cell-role="th">Category</th>
-<th data-quarto-table-cell-role="th">Description</th>
-<th data-quarto-table-cell-role="th">EE #</th>
-<th data-quarto-table-cell-role="th">Participant</th>
-<th data-quarto-table-cell-role="th">Client</th>
-<th data-quarto-table-cell-role="th">Assigned to</th>
-<th data-quarto-table-cell-role="th">Actions</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Sep 17, 2024</td>
-<td>Sep 16, 2024</td>
-<td>240944457</td>
-<td>Incoming Call</td>
-<td>General</td>
-<td>Address Change</td>
-<td>1234567</td>
-<td>Smith, Bob</td>
-<td>SEARS</td>
-<td>Kam, Ronald</td>
-<td>View Log Change Assigned User Change Log Sta...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Sep 17, 2024</td>
-<td>Sep 16, 2024</td>
-<td>240942306</td>
-<td>Incoming Call</td>
-<td>General</td>
-<td>Address Change</td>
-<td>2234567</td>
-<td>Williams, Bill</td>
-<td>SEARS</td>
-<td>Kam, Ronald</td>
-<td>View Log Change Assigned User Change Log Sta...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Sep 17, 2024</td>
-<td>Sep 16, 2024</td>
-<td>240943184</td>
-<td>Incoming Document</td>
-<td>General</td>
-<td>DB/DC: Other Form Received</td>
-<td>3234567</td>
-<td>Doe, Jane</td>
-<td>SEARS</td>
-<td>Kam, Ronald</td>
-<td>View Log Change Assigned User Change Log Sta...</td>
-</tr>
-</tbody>
-</table>
-
 </div>
-</div>
-</div>
+</section>
+</section>
+<section id="close-and-reassign" class="level1">
+<h1>01 close and reassign</h1>
+<section id="init-1" class="level2">
+<h2 class="anchored" data-anchor-id="init-1">init</h2>
 <div id="cell-11" class="cell">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> loguru <span class="im">import</span> logger <span class="im">as</span> lg</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> harmony_automation <span class="im">import</span> bots</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display">
-<pre><code>Follow-up      object
-Created        object
-Ticket #       object
-Type           object
-Category       object
-Description    object
-EE #           object
-Participant    object
-Client         object
-Assigned to    object
-Actions        object
-dtype: object</code></pre>
 </div>
-</div>
-<p>For reference, here is what the final result of <a href="https://pyronone.github.io/harmony_automation/tracker.html#trackerhelper.scrape_and_concat"><code>TrackerHelper.scrape_and_concat</code></a> looks like:</p>
+</section>
+<section id="fxs" class="level2">
+<h2 class="anchored" data-anchor-id="fxs">fxs</h2>
 <div id="cell-13" class="cell">
-<details class="code-fold">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_data() <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Load and clean one of the output files created from the update script - `for_log_tracker_...xlsx`. Warn if ticket # is missing.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">    pd.DataFrame</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">        df w/ 2 columns: `ticket_num` and `log_action`</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    latest <span class="op">=</span> <span class="bu">sorted</span>(os.listdir((<span class="st">"../dat"</span>)))[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    lg.info(<span class="ss">f"Latest log tracker file: </span><span class="sc">{</span>latest<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_excel((<span class="ss">f"../dat/</span><span class="sc">{</span>latest<span class="sc">}</span><span class="ss">"</span>))</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> df[[<span class="st">"ticket_num"</span>, <span class="st">"death_update"</span>]].copy()</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    df.columns <span class="op">=</span> [<span class="st">"ticket_num"</span>, <span class="st">"log_action"</span>]</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> df.ticket_num.isna()</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(df[m]) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        lg.warning(<span class="st">"Missing ticket numbers in data"</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df.copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="run-1" class="level2">
+<h2 class="anchored" data-anchor-id="run-1">run</h2>
+<div id="cell-15" class="cell">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">"../tests/for_docs/sample_res.xlsx"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> load_data()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>bot <span class="op">=</span> bots.Bot()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>sys.exit(<span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">date_created</th>
-<th data-quarto-table-cell-role="th">type_1</th>
-<th data-quarto-table-cell-role="th">type_2</th>
-<th data-quarto-table-cell-role="th">date_followup</th>
-<th data-quarto-table-cell-role="th">member_name</th>
-<th data-quarto-table-cell-role="th">div</th>
-<th data-quarto-table-cell-role="th">notes</th>
-<th data-quarto-table-cell-role="th">misc</th>
-<th data-quarto-table-cell-role="th">key</th>
-<th data-quarto-table-cell-role="th">ticket_num</th>
-<th data-quarto-table-cell-role="th">ee_num</th>
-<th data-quarto-table-cell-role="th">ticket_str</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Sep 16, 2024</td>
-<td>Incoming Call</td>
-<td>DB/DC: Death Reported</td>
-<td>Sep 17, 2024</td>
-<td>Doe, Jane</td>
-<td>SEARS</td>
-<td>! 1234567 - \n\nExecutor ... called to report ...</td>
-<td>.</td>
-<td>Doe, Jane45551Incoming CallDB/DC: Death Report...</td>
-<td>240945524</td>
-<td>1234567</td>
-<td>240945524 1234567 -</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Sep 12, 2024</td>
-<td>TP Incoming Call</td>
-<td>DB/DC: Death Reported</td>
-<td>Sep 13, 2024</td>
-<td>Doe, John</td>
-<td>SEARS</td>
-<td>2234567 - \n[md:Aug 26, 2024][sdod:May 14, 202...</td>
-<td>.</td>
-<td>Doe, John45547TP Incoming CallDB/DC: Death Rep...</td>
-<td>240935492</td>
-<td>2234567</td>
-<td>240935492 2234567 -</td>
-</tr>
-</tbody>
-</table>
-
 </div>
-</div>
-</div>
-<div id="cell-14" class="cell">
-<details class="code-fold">
+<section id="close-logs" class="level3">
+<h3 class="anchored" data-anchor-id="close-logs">close logs</h3>
+<div id="cell-17" class="cell">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Scraped notes:</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st">...</span><span class="ch">\n\n</span><span class="st">Formatted notes:</span><span class="ch">\n\n</span><span class="st">"</span>.join(df[<span class="st">"notes"</span>].tolist()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># filter for only logs to close</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>lg.trace(<span class="st">"## Closing Logs"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> df[<span class="st">"log_action"</span>].<span class="bu">str</span>.strip().<span class="bu">str</span>.lower() <span class="op">==</span> <span class="st">"n"</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>logs_to_close <span class="op">=</span> df[m].copy()</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>logs_to_close <span class="op">=</span> [<span class="bu">str</span>(x) <span class="cf">for</span> x <span class="kw">in</span> logs_to_close.ticket_num.tolist()]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>lg.info(<span class="ss">f"# logs to close: </span><span class="sc">{</span><span class="bu">len</span>(logs_to_close)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>completed_list <span class="op">=</span> []</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Scraped notes:
-
-! 1234567 - 
-
-Executor ... called to report death of ...  DOD 01/02/2024  Address 123 Sesame St, ... Home 9051234567 ...
-
--
-https://harmony.rest_of_url
-
-...
-
-Formatted notes:
-
-2234567 - 
-[md:Aug 26, 2024][sdod:May 14, 2024] // 123 Sesame St, Toronto, ON  M5V 2S8 // 905-123-4567
- 
-Notes are formatted in a way that the update package can extract data from text using regex.
-
-https://harmony.rest_of_url</code></pre>
 </div>
+<div id="cell-18" class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(logs_to_close)):</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    ticket_num <span class="op">=</span> logs_to_close[i]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    remaining <span class="op">=</span> <span class="bu">len</span>(logs_to_close) <span class="op">-</span> (i <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    lg.trace(<span class="ss">f"idx: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> // remaining: </span><span class="sc">{</span>remaining<span class="sc">}</span><span class="ss"> // ticket #: </span><span class="sc">{</span>ticket_num<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ticket_num <span class="kw">not</span> <span class="kw">in</span> completed_list:</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        res <span class="op">=</span> bot.close_log(ticket_num)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        ctr <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> (res <span class="op">!=</span> <span class="dv">0</span>) <span class="kw">and</span> (ctr <span class="op">&lt;</span> <span class="dv">10</span>):</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>            time.sleep(<span class="fl">0.5</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>            res <span class="op">=</span> bot.close_log(ticket_num)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>            ctr <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> res <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>            completed_list.append(ticket_num)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>            lg.trace(<span class="ss">f"closed </span><span class="sc">{</span>ticket_num<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>            lg.warning(<span class="ss">f"error closing </span><span class="sc">{</span>ticket_num<span class="sc">}</span><span class="ss">; manual check needed"</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">"manual check needed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<p>The above result is then added to a tracking file where the notes are formatted.</p>
-<p>The tracking file also pulls data from the master file and various reports, to be used as input for the update process.</p>
+</section>
+<section id="re-assign" class="level3">
+<h3 class="anchored" data-anchor-id="re-assign">re-assign</h3>
+<div id="cell-20" class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># filter for only logs to re-assign</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>lg.trace(<span class="st">"## Re-assigning Logs"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> df[<span class="st">"log_action"</span>].<span class="bu">str</span>.strip().<span class="bu">str</span>.lower() <span class="op">!=</span> <span class="st">"n"</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>logs_to_reassign: pd.DataFrame <span class="op">=</span> df[m].copy()</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>logs_to_reassign <span class="op">=</span> logs_to_reassign.reset_index(drop<span class="op">=</span><span class="va">True</span>).copy()</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>lg.info(<span class="ss">f"# logs to re-assign: </span><span class="sc">{</span><span class="bu">len</span>(logs_to_reassign)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>reassigned_list: <span class="bu">list</span>[<span class="bu">str</span>] <span class="op">=</span> []</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="cell-21" class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(logs_to_reassign)):</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    ticket_num <span class="op">=</span> <span class="bu">str</span>(logs_to_reassign.loc[i][<span class="st">"ticket_num"</span>])</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    note <span class="op">=</span> <span class="bu">str</span>(logs_to_reassign.loc[i][<span class="st">"log_action"</span>])</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    remaining <span class="op">=</span> <span class="bu">len</span>(logs_to_reassign) <span class="op">-</span> (i <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    lg.trace(<span class="ss">f"idx: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> // remaining: </span><span class="sc">{</span>remaining<span class="sc">}</span><span class="ss"> // ticket #: </span><span class="sc">{</span>ticket_num<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ticket_num <span class="kw">not</span> <span class="kw">in</span> reassigned_list:</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        _ok <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        ctr <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="kw">not</span> _ok:</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">try</span>:</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>                bot.search_ticket_num(ticket_num)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>                bot.reassign_log(note)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>                time.sleep(<span class="fl">1.8</span>)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">except</span>:</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>                time.sleep(<span class="dv">1</span>)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>                lg.warning(<span class="ss">f"retrying </span><span class="sc">{</span>ticket_num<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>                ctr <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> ctr <span class="op">&gt;</span> <span class="dv">10</span>:</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">"manual check required"</span>)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>                reassigned_list.append(ticket_num)</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>                lg.trace(<span class="ss">f"re-assigned </span><span class="sc">{</span>ticket_num<span class="sc">}</span><span class="ss"> w/ note: </span><span class="sc">{</span>note<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>                _ok <span class="op">=</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="cell-22" class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>bot.shutdown()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
