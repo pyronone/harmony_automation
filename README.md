@@ -18,7 +18,7 @@ I created some scripts to automate the process using
 each log/ticket I’m assigned to and scrapes all text comments. This
 minimizes the need to manually check each log in the browser.
 
-[Documentation](https://pyronone.github.io/harmony_automation/core.html)
+[Documentation](https://pyronone.github.io/harmony_automation/index.html)
 
 In action:
 

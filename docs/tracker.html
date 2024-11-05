@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="…">
 
-<title>harmony_automation</title>
+<title>01_tracker – harmony_automation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,10 +21,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -66,14 +101,17 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="harmony_automation">
-<meta property="og:description" content=".">
+<meta property="og:title" content="01_tracker – harmony_automation">
+<meta property="og:description" content="…">
 <meta property="og:site_name" content="harmony_automation">
-<meta name="twitter:title" content="harmony_automation">
-<meta name="twitter:description" content=".">
+<meta name="twitter:title" content="01_tracker – harmony_automation">
+<meta name="twitter:description" content="…">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -98,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">harmony_automation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">01_tracker</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -112,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">harmony_automation</span></a>
   </div>
 </li>
@@ -127,17 +165,38 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#fxs" id="toc-fxs" class="nav-link active" data-scroll-target="#fxs">00 fxs</a></li>
+  <li><a href="#trackerhelper" id="toc-trackerhelper" class="nav-link" data-scroll-target="#trackerhelper">01 TrackerHelper</a>
+  <ul class="collapse">
+  <li><a href="#trackerhelper-1" id="toc-trackerhelper-1" class="nav-link" data-scroll-target="#trackerhelper-1">TrackerHelper</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">methods</a>
+  <ul class="collapse">
+  <li><a href="#trackerhelper.scrape_and_concat" id="toc-trackerhelper.scrape_and_concat" class="nav-link" data-scroll-target="#trackerhelper.scrape_and_concat">TrackerHelper.scrape_and_concat</a></li>
+  <li><a href="#trackerhelper.update_gsheet" id="toc-trackerhelper.update_gsheet" class="nav-link" data-scroll-target="#trackerhelper.update_gsheet">TrackerHelper.update_gsheet</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#sample-results" id="toc-sample-results" class="nav-link" data-scroll-target="#sample-results">02 Sample results</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">harmony_automation</h1>
+<h1 class="title">01_tracker</h1>
 </div>
 
+<div>
+  <div class="description">
+    …
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -153,25 +212,296 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<p>As I am the main person responsible for data updates for Sears, there can be upwards of 100+ tickets/logs to process on a bi-weekly basis. Some logs can be closed after the update process, while others need to be re-assigned for further processing.</p>
-<p>The update process has been streamlined to the point that updates can be easily and quickly completed in bulk/batches. Manually closing and re-assigning up to 100+ logs at a time proved to be a tedious hassle, so I created some scripts to automate the process using <a href="https://www.selenium.dev/">Selenium</a>.</p>
-<p><strong>Update:</strong> Added a scraper bot that extends the main bot. It goes to each log/ticket I’m assigned to and scrapes all text comments. This minimizes the need to manually check each log in the browser.</p>
-<p><a href="https://pyronone.github.io/harmony_automation/index.html">Documentation</a></p>
-<p>In action:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="0.gif" title="segment" class="img-fluid figure-img"></p>
-<figcaption>Closing logs</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="1.gif" title="segment" class="img-fluid figure-img"></p>
-<figcaption>Re-assigning logs</figcaption>
-</figure>
-</div>
+<section id="fxs" class="level1">
+<h1>00 fxs</h1>
+</section>
+<section id="trackerhelper" class="level1">
+<h1>01 TrackerHelper</h1>
+<hr>
+<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/tracker.py#L130" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="trackerhelper-1" class="level3">
+<h3 class="anchored" data-anchor-id="trackerhelper-1">TrackerHelper</h3>
+<blockquote class="blockquote">
+<pre><code> TrackerHelper (gsheet_cx:gspread.worksheet.Worksheet=None,
+                gsheet:pandas.core.frame.DataFrame=None)</code></pre>
+</blockquote>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">methods</h2>
+<hr>
+<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/tracker.py#L241" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="trackerhelper.scrape_and_concat" class="level3">
+<h3 class="anchored" data-anchor-id="trackerhelper.scrape_and_concat">TrackerHelper.scrape_and_concat</h3>
+<blockquote class="blockquote">
+<pre><code> TrackerHelper.scrape_and_concat (_fp:str='../tmp/tmp.parquet',
+                                  skip_export:bool=False)</code></pre>
+</blockquote>
+<p>Export all logs and identify which logs have no notes and need to be scraped. Run scrape and concatenate result with logs that already have notes added.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>_fp</td>
+<td>str</td>
+<td>../tmp/tmp.parquet</td>
+<td>path to save/load exported logs</td>
+</tr>
+<tr class="even">
+<td>skip_export</td>
+<td>bool</td>
+<td>False</td>
+<td>for testing</td>
+</tr>
+<tr class="odd">
+<td><strong>Returns</strong></td>
+<td><strong>DataFrame</strong></td>
+<td></td>
+<td><strong>pd.DataFrame</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/tracker.py#L293" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="trackerhelper.update_gsheet" class="level3">
+<h3 class="anchored" data-anchor-id="trackerhelper.update_gsheet">TrackerHelper.update_gsheet</h3>
+<blockquote class="blockquote">
+<pre><code> TrackerHelper.update_gsheet (df:pandas.core.frame.DataFrame)</code></pre>
+</blockquote>
+<p>…</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>df</td>
+<td>DataFrame</td>
+<td>pd.DataFrame</td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td><strong>None</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="sample-results" class="level1">
+<h1>02 Sample results</h1>
+<p>For reference, this is what the exported logs result looks like (data has been anonymized):</p>
+<div id="cell-10" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_parquet(<span class="st">"../tests/for_docs/tmp.parquet"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
 
 
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Follow-up</th>
+<th data-quarto-table-cell-role="th">Created</th>
+<th data-quarto-table-cell-role="th">Ticket #</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Category</th>
+<th data-quarto-table-cell-role="th">Description</th>
+<th data-quarto-table-cell-role="th">EE #</th>
+<th data-quarto-table-cell-role="th">Participant</th>
+<th data-quarto-table-cell-role="th">Client</th>
+<th data-quarto-table-cell-role="th">Assigned to</th>
+<th data-quarto-table-cell-role="th">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Sep 17, 2024</td>
+<td>Sep 16, 2024</td>
+<td>240944457</td>
+<td>Incoming Call</td>
+<td>General</td>
+<td>Address Change</td>
+<td>1234567</td>
+<td>Smith, Bob</td>
+<td>SEARS</td>
+<td>Kam, Ronald</td>
+<td>View Log Change Assigned User Change Log Sta...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Sep 17, 2024</td>
+<td>Sep 16, 2024</td>
+<td>240942306</td>
+<td>Incoming Call</td>
+<td>General</td>
+<td>Address Change</td>
+<td>2234567</td>
+<td>Williams, Bill</td>
+<td>SEARS</td>
+<td>Kam, Ronald</td>
+<td>View Log Change Assigned User Change Log Sta...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Sep 17, 2024</td>
+<td>Sep 16, 2024</td>
+<td>240943184</td>
+<td>Incoming Document</td>
+<td>General</td>
+<td>DB/DC: Other Form Received</td>
+<td>3234567</td>
+<td>Doe, Jane</td>
+<td>SEARS</td>
+<td>Kam, Ronald</td>
+<td>View Log Change Assigned User Change Log Sta...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-11" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<pre><code>Follow-up      object
+Created        object
+Ticket #       object
+Type           object
+Category       object
+Description    object
+EE #           object
+Participant    object
+Client         object
+Assigned to    object
+Actions        object
+dtype: object</code></pre>
+</div>
+</div>
+<p>For reference, here is what the final result of <a href="https://pyronone.github.io/harmony_automation/tracker.html#trackerhelper.scrape_and_concat"><code>TrackerHelper.scrape_and_concat</code></a> looks like:</p>
+<div id="cell-13" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">"../tests/for_docs/sample_res.xlsx"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date_created</th>
+<th data-quarto-table-cell-role="th">type_1</th>
+<th data-quarto-table-cell-role="th">type_2</th>
+<th data-quarto-table-cell-role="th">date_followup</th>
+<th data-quarto-table-cell-role="th">member_name</th>
+<th data-quarto-table-cell-role="th">div</th>
+<th data-quarto-table-cell-role="th">notes</th>
+<th data-quarto-table-cell-role="th">misc</th>
+<th data-quarto-table-cell-role="th">key</th>
+<th data-quarto-table-cell-role="th">ticket_num</th>
+<th data-quarto-table-cell-role="th">ee_num</th>
+<th data-quarto-table-cell-role="th">ticket_str</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Sep 16, 2024</td>
+<td>Incoming Call</td>
+<td>DB/DC: Death Reported</td>
+<td>Sep 17, 2024</td>
+<td>Doe, Jane</td>
+<td>SEARS</td>
+<td>! 1234567 - \n\nExecutor ... called to report ...</td>
+<td>.</td>
+<td>Doe, Jane45551Incoming CallDB/DC: Death Report...</td>
+<td>240945524</td>
+<td>1234567</td>
+<td>240945524 1234567 -</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Sep 12, 2024</td>
+<td>TP Incoming Call</td>
+<td>DB/DC: Death Reported</td>
+<td>Sep 13, 2024</td>
+<td>Doe, John</td>
+<td>SEARS</td>
+<td>2234567 - \n[md:Aug 26, 2024][sdod:May 14, 202...</td>
+<td>.</td>
+<td>Doe, John45547TP Incoming CallDB/DC: Death Rep...</td>
+<td>240935492</td>
+<td>2234567</td>
+<td>240935492 2234567 -</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-14" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Scraped notes:</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st">...</span><span class="ch">\n\n</span><span class="st">Formatted notes:</span><span class="ch">\n\n</span><span class="st">"</span>.join(df[<span class="st">"notes"</span>].tolist()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Scraped notes:
+
+! 1234567 - 
+
+Executor ... called to report death of ...  DOD 01/02/2024  Address 123 Sesame St, ... Home 9051234567 ...
+
+-
+https://harmony.rest_of_url
+
+...
+
+Formatted notes:
+
+2234567 - 
+[md:Aug 26, 2024][sdod:May 14, 2024] // 123 Sesame St, Toronto, ON  M5V 2S8 // 905-123-4567
+ 
+Notes are formatted in a way that the update package can extract data from text using regex.
+
+https://harmony.rest_of_url</code></pre>
+</div>
+</div>
+<p>The above result is then added to a tracking file where the notes are formatted.</p>
+<p>The tracking file also pulls data from the master file and various reports, to be used as input for the update process.</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
