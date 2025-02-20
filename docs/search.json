@@ -4,59 +4,29 @@
     "href": "index.html",
     "title": "harmony_automation",
     "section": "",
-    "text": "As I am the main person responsible for data updates for Sears, there can be upwards of 100+ tickets/logs to process on a bi-weekly basis. Some logs can be closed after the update process, while others need to be re-assigned for further processing.\nThe update process has been streamlined to the point that updates can be easily and quickly completed in bulk/batches. Manually closing and re-assigning up to 100+ logs at a time proved to be a tedious hassle, so I created some scripts to automate the process using Selenium.\nUpdate: Added a scraper bot that extends the main bot. It goes to each log/ticket I’m assigned to and scrapes all text comments. This minimizes the need to manually check each log in the browser.\nDocumentation\nIn action:\n\n\n\nClosing logs\n\n\n\n\n\nRe-assigning logs",
+    "text": "As I am the main person responsible for data updates for Sears, there can be upwards of 100+ tickets/logs to process on a bi-weekly basis. Some logs can be closed after the update process, while others need to be re-assigned for further processing.\nThe update process has been streamlined to the point that updates can be easily and quickly completed in bulk/batches. Manually closing and re-assigning up to 100+ logs at a time proved to be a tedious hassle, so I created some scripts to automate the process using Selenium Playwright (as of v2.0.1).\nDocumentation",
     "crumbs": [
       "harmony_automation"
     ]
   },
   {
-    "objectID": "bots.html",
-    "href": "bots.html",
-    "title": "02_bots",
-    "section": "",
-    "text": "source\n\n\n\n yaml_helper (fpath:str='./config.yaml', mode:str='r', data:dict=None)\n\nHelper function to read, write, append to files in yaml format. Checks for duplicate keys if reading or appending.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nfpath\nstr\n./config.yaml\nstr\n\n\nmode\nstr\nr\nstr - r / a / w\n\n\ndata\ndict\nNone\ndict - cannot be None if writing or appending\n\n\nReturns\ndict\n\ndict - data if reading, {‘r’: 0} if writing/appending\n\n\n\n\nsource\n\n\n\n\n fp (relative_fp:str, base_dir:str='.')\n\nFor referencing relative file paths in package directory.\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nrelative_fp\nstr\n\nstr - eg. “../dir/file.txt”\n\n\nbase_dir\nstr\n.\nstr\n\n\nReturns\nstr\n\nstr\n\n\n\n\nsource\n\n\n\n\n get_latest_chromedriver (chromedriver_path:str=None, dl_path:str=None)\n\nDownload latest stable chromedriver for win64.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nchromedriver_path\nstr\nNone\nstr - if None, uses default path specified in config.yaml\n\n\ndl_path\nstr\nNone\nstr - if None, uses default path specified in config.yaml\n\n\nReturns\nNone\n\n\n\n\n\n\nsource\n\n\n\n\n setup_logging ()\n\nAdd handler attached to harmony_automation.log at trace level",
+    "objectID": "index.html#in-action-v1",
+    "href": "index.html#in-action-v1",
+    "title": "harmony_automation",
+    "section": "In Action (v1)",
+    "text": "In Action (v1)\n\nClosing tickets\n\n\n\nClosing logs\n\n\n\n\nRe-assigning tickets\n\n\n\nRe-assigning logs",
     "crumbs": [
-      "02_bots"
+      "harmony_automation"
     ]
   },
   {
-    "objectID": "bots.html#methods",
-    "href": "bots.html#methods",
-    "title": "02_bots",
-    "section": "methods",
-    "text": "methods\n\nsource\n\nBot.search_for_xpath_elem\n\n Bot.search_for_xpath_elem (xpath_str:str, time_limit:int=30)\n\nWhile len of search list is 0, keep searching. If exceeds time limit (seconds, approximate), returns empty list.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nxpath_str\nstr\n\nstr\n\n\ntime_limit\nint\n30\nint\n\n\nReturns\nlist\n\nList[WebElement] - empty list if no results found within time limit\n\n\n\n\nsource\n\n\nBot.login\n\n Bot.login ()\n\nLog in to Harmony. Credentials stored in cfg/config.yaml\n\nsource\n\n\nBot.search_ticket_num\n\n Bot.search_ticket_num (ticket_num:str)\n\nGo to ticket number search page and search for ticket_num\n\n\n\n\nType\nDetails\n\n\n\n\nticket_num\nstr\nticket #\n\n\nReturns\nNone\n\n\n\n\n\nsource\n\n\nBot.view_log\n\n Bot.view_log ()\n\nClicks view log of search result\n\nsource\n\n\nBot.click_edit_log\n\n Bot.click_edit_log ()\n\nClicks edit button\n\nsource\n\n\nBot.edit_res\n\n Bot.edit_res (comment:str='done')\n\nAdd comment to resolution input box\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\ncomment\nstr\ndone\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\nsource\n\n\nBot.submit_res\n\n Bot.submit_res ()\n\nClicks submit\n\nsource\n\n\nBot.chk_resolution_submitted\n\n Bot.chk_resolution_submitted ()\n\nCheck if resolution successfully submitted and we are now on ticket view page w/ Back button and Timeline button. Needed because Harmony can be glitchy sometimes.\n\nsource\n\n\nBot.close_log\n\n Bot.close_log (ticket_num:str)\n\nExecute browser actions to close a ticket/log\n\n\n\n\nType\nDetails\n\n\n\n\nticket_num\nstr\nstr\n\n\nReturns\nint\nreturns 0 if successfully closed\n\n\n\n\nsource\n\n\nBot.reassign_log\n\n Bot.reassign_log (note:str)\n\nActions to execute on ticket # search results page - re-assigns to colleague listed in config.yaml\n\n\n\n\nType\nDetails\n\n\n\n\nnote\nstr\nstr\n\n\nReturns\nNone\n\n\n\n\n\nsource\n\n\nBot.shutdown\n\n Bot.shutdown ()\n\ndriver.quit()…",
+    "objectID": "index.html#changelog",
+    "href": "index.html#changelog",
+    "title": "harmony_automation",
+    "section": "Changelog",
+    "text": "Changelog\n\n2.0.1\n\nport to Playwright",
     "crumbs": [
-      "02_bots"
-    ]
-  },
-  {
-    "objectID": "bots.html#tests",
-    "href": "bots.html#tests",
-    "title": "02_bots",
-    "section": "tests",
-    "text": "tests\n\n\nCode\n# * TEST\ndef test_login_and_search_tkt() -&gt; None:\n    test = Bot()\n    test.search_ticket_num(\"22126711\")",
-    "crumbs": [
-      "02_bots"
-    ]
-  },
-  {
-    "objectID": "bots.html#methods-1",
-    "href": "bots.html#methods-1",
-    "title": "02_bots",
-    "section": "methods",
-    "text": "methods\n\nsource\n\nScraper.scrape_individual_ticket\n\n Scraper.scrape_individual_ticket (ticket_str:str)\n\nOpens log, extracts/cleans notes/comments, format and return\n\n\n\n\n\n\n\n\n\nType\nDetails\n\n\n\n\nticket_str\nstr\nstr - “[ticket_num] [employee_id] -”\n\n\nReturns\nstr\nstr - “[employee_id] - [notes/comments] [url]”\n\n\n\n\nsource\n\n\nScraper.scrape_all_tickets\n\n Scraper.scrape_all_tickets (input_ticket_strs:list[str])\n\nGoes to log and scrapes all comments. Text only, no attachments.\n\n\n\n\n\n\n\n\n\nType\nDetails\n\n\n\n\ninput_ticket_strs\nlist\n“[ticket_num] [employee_id] -” - eg. [‘2234567890 223456 -’, …]\n\n\nReturns\nDataFrame\ndf w/ 2 columns: (1) input_ticket_strs and (2) scraped comments (details)\n\n\n\n\nsource\n\n\nScraper.goto_mylogs_select_80\n\n Scraper.goto_mylogs_select_80 ()\n\nGo to My Logs page and select 80 logs per page dropdown option\n\nsource\n\n\nScraper.click_next_pg\n\n Scraper.click_next_pg ()\n\nClick next page in My Logs\n\nsource\n\n\nScraper.export_logs\n\n Scraper.export_logs (_fp:str=None)\n\nExport and saves all logs in cwd (default). Saves in both parquet and xlsx format. Assumes we’re on home page.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\n_fp\nstr\nNone\nstr - path to directory where result should be saved. If None (or invalid), defaults to cwd.\n\n\nReturns\nNone",
-    "crumbs": [
-      "02_bots"
-    ]
-  },
-  {
-    "objectID": "bots.html#tests-1",
-    "href": "bots.html#tests-1",
-    "title": "02_bots",
-    "section": "tests",
-    "text": "tests\n\n\nCode\n# * TEST\ndef test_login_and_search_tkt2() -&gt; None:\n    test = Scraper()\n    test.search_ticket_num(\"22126711\")",
-    "crumbs": [
-      "02_bots"
+      "harmony_automation"
     ]
   },
   {
@@ -64,83 +34,39 @@
     "href": "core.html",
     "title": "00_core",
     "section": "",
-    "text": "source\n\n\n\n fp (relative_fp:str, base_dir:str='.')\n\nFor referencing relative file paths in package directory.\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nrelative_fp\nstr\n\nstr - eg. “../dir/file.txt”\n\n\nbase_dir\nstr\n.\nstr\n\n\nReturns\nstr\n\nstr\n\n\n\n\nsource\n\n\n\n\n read_yaml_data (file_path:str)\n\n…\n\n\n\n\nType\nDetails\n\n\n\n\nfile_path\nstr\nstr\n\n\nReturns\ndict\ndict\n\n\n\n\nsource\n\n\n\n\n yaml_helper (fpath:str='./config.yaml', mode:str='r', data:dict=None)\n\nHelper function to read, write, append to files in yaml format. Checks for duplicate keys if reading or appending.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nfpath\nstr\n./config.yaml\nstr\n\n\nmode\nstr\nr\nstr - r / a / w\n\n\ndata\ndict\nNone\ndict - cannot be None if writing or appending\n\n\nReturns\ndict\n\ndict - data if reading, {‘r’: 0} if writing/appending\n\n\n\n\nsource\n\n\n\n\n get_latest_chromedriver (chromedriver_path:str=None, dl_path:str=None)\n\nDownload latest stable chromedriver for win64.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nchromedriver_path\nstr\nNone\nstr - if None, uses default path specified in config.yaml\n\n\ndl_path\nstr\nNone\nstr - if None, uses default path specified in config.yaml\n\n\nReturns\nNone"
+    "text": "setupLogger (name:str='log', serialize:bool=False)\n\nadd handler attached to &lt;name&gt;.log @ trace level and up\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nname\nstr\nlog\nstr\n\n\nserialize\nbool\nFalse\nbool\n\n\nReturns\nNone\n\n\n\n\n\n\n\n\n\n\n loadSerializedLog (log_fp:str, incl_full_record:bool=False,\n                    incl_unix_ts:bool=False)\n\n-&gt; pd.DataFrame\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nlog_fp\nstr\n\nstr\n\n\nincl_full_record\nbool\nFalse\nbool\n\n\nincl_unix_ts\nbool\nFalse\nbool\n\n\nReturns\nDataFrame\n\npd.DataFrame\n\n\n\n\n\n\n\n\n fp (_path:str='', ambiguous_err:bool=True)\n\nFor referencing relative file paths in dev env. Assumes core is always one level down from project root directory.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\n_path\nstr\n\nstr - eg. \"../dat/some_file.csv\" == \"&lt;project_root&gt;/dat/some_file.csv&gt;\"\n\n\nambiguous_err\nbool\nTrue\nbool - if True, will raise exception if path is ambiguous when running docs generation vs dev env\n\n\nReturns\nstr\n\nstr\n\n\n\n\n\n\n\n\n yaml_helper (fpath:str='./config.yaml', mode:str='r',\n              data:Optional[dict]=None)\n\nHelper function to read, write, append to files in yaml format. Checks for duplicate keys if reading or appending.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nfpath\nstr\n./config.yaml\nstr\n\n\nmode\nstr\nr\nstr - r / a / w\n\n\ndata\nOptional\nNone\ncannot be None if writing or appending\n\n\nReturns\ndict\n\ndict - data if reading, {‘r’: 0} if writing/appending",
+    "crumbs": [
+      "00_core"
+    ]
   },
   {
-    "objectID": "core.html#login",
-    "href": "core.html#login",
+    "objectID": "core.html#close-tickets",
+    "href": "core.html#close-tickets",
     "title": "00_core",
-    "section": "login",
-    "text": "login\n\nsource\n\nlogin\n\n login ()\n\nLog in to Harmony. Credentials stored in cfg/config.yaml"
+    "section": "close tickets",
+    "text": "close tickets\n\n\nclose_log\n\n close_log (page:playwright.async_api._generated.Page, tkt:str,\n            trk_fp:str, note:str='Done')\n\nClose individual log.\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\npage\nPage\n\nPage\n\n\ntkt\nstr\n\nstr\n\n\ntrk_fp\nstr\n\nstr\n\n\nnote\nstr\nDone\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\n\n\nclose_all_logs\n\n close_all_logs ()\n\nClose all logs.",
+    "crumbs": [
+      "00_core"
+    ]
   },
   {
-    "objectID": "core.html#search-ticket",
-    "href": "core.html#search-ticket",
+    "objectID": "core.html#re-assign-tickets",
+    "href": "core.html#re-assign-tickets",
     "title": "00_core",
-    "section": "search ticket",
-    "text": "search ticket\n\nsource\n\nsearch_ticket_num\n\n search_ticket_num (ticket_num:str)\n\nGo to ticket number search page and search for ticket_num\n\n\n\n\nType\nDetails\n\n\n\n\nticket_num\nstr\nticket #\n\n\nReturns\nNone"
+    "section": "re-assign tickets",
+    "text": "re-assign tickets\n\n\nreassign_log\n\n reassign_log (page:playwright.async_api._generated.Page, tkt:str,\n               trk_fp:str, note:str)\n\nReassign individual log.\n\n\n\n\nType\nDetails\n\n\n\n\npage\nPage\nPage\n\n\ntkt\nstr\nstr\n\n\ntrk_fp\nstr\nstr\n\n\nnote\nstr\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\n\nreassign_all_logs\n\n reassign_all_logs ()\n\nRe-assign all logs.",
+    "crumbs": [
+      "00_core"
+    ]
   },
   {
-    "objectID": "core.html#close-logs",
-    "href": "core.html#close-logs",
+    "objectID": "core.html#add-tickets",
+    "href": "core.html#add-tickets",
     "title": "00_core",
-    "section": "close logs",
-    "text": "close logs\n\nsource\n\nchk_resolution_submitted\n\n chk_resolution_submitted ()\n\nCheck if resolution successfully submitted and we are now on ticket view page w/ Back button and Timeline button. Needed because Harmony can be glitchy sometimes.\n\nsource\n\n\nsubmit_res\n\n submit_res ()\n\nClicks submit\n\nsource\n\n\nedit_res\n\n edit_res (comment:str='done')\n\nAdd comment to resolution input box\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\ncomment\nstr\ndone\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\nsource\n\n\nclick_edit_log\n\n click_edit_log ()\n\nClicks edit button\n\nsource\n\n\nview_log\n\n view_log ()\n\nClicks view log of search result\n\nsource\n\n\nclose_log\n\n close_log (ticket_num:Union[str,int])\n\n…\n\n\n\n\nType\nDetails\n\n\n\n\nticket_num\ntyping.Union[str, int]\nUnion[str, int]\n\n\nReturns\nint\nreturns 0 if successfully closed"
-  },
-  {
-    "objectID": "core.html#re-assign-logs",
-    "href": "core.html#re-assign-logs",
-    "title": "00_core",
-    "section": "re-assign logs",
-    "text": "re-assign logs\n\nsource\n\nreassign_log\n\n reassign_log (note:str)\n\nActions to execute on ticket # search results page - re-assigns to colleague listed in config.yaml\n\n\n\n\nType\nDetails\n\n\n\n\nnote\nstr\nstr\n\n\nReturns\nNone"
-  },
-  {
-    "objectID": "tracker.html#methods",
-    "href": "tracker.html#methods",
-    "title": "01_tracker",
-    "section": "methods",
-    "text": "methods\n\nsource\n\nTrackerHelper.scrape_and_concat\n\n TrackerHelper.scrape_and_concat (_fp:str='../tmp/tmp.parquet',\n                                  skip_export:bool=False)\n\nExport all logs and identify which logs have no notes and need to be scraped. Run scrape and concatenate result with logs that already have notes added.\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\n_fp\nstr\n../tmp/tmp.parquet\npath to save/load exported logs\n\n\nskip_export\nbool\nFalse\nfor testing\n\n\nReturns\nDataFrame\n\npd.DataFrame\n\n\n\n\nsource\n\n\nTrackerHelper.update_gsheet\n\n TrackerHelper.update_gsheet (df:pandas.core.frame.DataFrame)\n\n…\n\n\n\n\nType\nDetails\n\n\n\n\ndf\nDataFrame\npd.DataFrame\n\n\nReturns\nNone"
-  },
-  {
-    "objectID": "scripts.html",
-    "href": "scripts.html",
-    "title": "03_scripts",
-    "section": "",
-    "text": "Code\n# * DOC\nimport sys\nfrom harmony_automation import tracker as trk\n\n\n\n\nCode\n# * DOC\nhelper = trk.TrackerHelper()\nsys.exit(0)\n\n\n\n\n\n\n\nCode\n# * DOC\ndf = helper.scrape_and_concat()\n\n\n\n\nCode\n# * DOC\nhelper.update_gsheet(df)"
-  },
-  {
-    "objectID": "scripts.html#init",
-    "href": "scripts.html#init",
-    "title": "03_scripts",
-    "section": "",
-    "text": "Code\n# * DOC\nimport sys\nfrom harmony_automation import tracker as trk\n\n\n\n\nCode\n# * DOC\nhelper = trk.TrackerHelper()\nsys.exit(0)"
-  },
-  {
-    "objectID": "scripts.html#run",
-    "href": "scripts.html#run",
-    "title": "03_scripts",
-    "section": "",
-    "text": "Code\n# * DOC\ndf = helper.scrape_and_concat()\n\n\n\n\nCode\n# * DOC\nhelper.update_gsheet(df)"
-  },
-  {
-    "objectID": "scripts.html#init-1",
-    "href": "scripts.html#init-1",
-    "title": "03_scripts",
-    "section": "init",
-    "text": "init\n\n\nCode\n# * DOC\nimport os\nimport sys\nimport time\n\nimport pandas as pd\nfrom loguru import logger as lg\n\nfrom harmony_automation import bots"
-  },
-  {
-    "objectID": "scripts.html#fxs",
-    "href": "scripts.html#fxs",
-    "title": "03_scripts",
-    "section": "fxs",
-    "text": "fxs\n\n\nCode\n# * DOC\ndef load_data() -&gt; pd.DataFrame:\n    \"\"\"Load and clean one of the output files created from the update script - `for_log_tracker_...xlsx`. Warn if ticket # is missing.\n    Returns\n    -------\n    pd.DataFrame\n        df w/ 2 columns: `ticket_num` and `log_action`\n    \"\"\"\n    latest = sorted(os.listdir((\"../dat\")))[-1]\n    lg.info(f\"Latest log tracker file: {latest}\")\n\n    df = pd.read_excel((f\"../dat/{latest}\"))\n    df = df[[\"ticket_num\", \"death_update\"]].copy()\n    df.columns = [\"ticket_num\", \"log_action\"]\n\n    m = df.ticket_num.isna()\n    if len(df[m]) &gt; 0:\n        lg.warning(\"Missing ticket numbers in data\")\n\n    return df.copy()"
-  },
-  {
-    "objectID": "scripts.html#run-1",
-    "href": "scripts.html#run-1",
-    "title": "03_scripts",
-    "section": "run",
-    "text": "run\n\n\nCode\n# * DOC\ndf = load_data()\nbot = bots.Bot()\nsys.exit(0)\n\n\n\nclose logs\n\n\nCode\n# * DOC\n# filter for only logs to close\nlg.trace(\"## Closing Logs\")\nm = df[\"log_action\"].str.strip().str.lower() == \"n\"\nlogs_to_close = df[m].copy()\nlogs_to_close = [str(x) for x in logs_to_close.ticket_num.tolist()]\n\nlg.info(f\"# logs to close: {len(logs_to_close)}\")\ncompleted_list = []\n\n\n\n\nCode\n# * DOC\nfor i in range(len(logs_to_close)):\n    ticket_num = logs_to_close[i]\n    remaining = len(logs_to_close) - (i + 1)\n    lg.trace(f\"idx: {i} // remaining: {remaining} // ticket #: {ticket_num}\")\n\n    if ticket_num not in completed_list:\n        res = bot.close_log(ticket_num)\n        ctr = 0\n\n        while (res != 0) and (ctr &lt; 10):\n            time.sleep(0.5)\n            res = bot.close_log(ticket_num)\n            ctr += 1\n\n        if res == 0:\n            completed_list.append(ticket_num)\n            lg.trace(f\"closed {ticket_num}\")\n        else:\n            lg.warning(f\"error closing {ticket_num}; manual check needed\")\n            raise Exception(\"manual check needed\")\n\n\n\n\nre-assign\n\n\nCode\n# * DOC\n# filter for only logs to re-assign\nlg.trace(\"## Re-assigning Logs\")\nm = df[\"log_action\"].str.strip().str.lower() != \"n\"\nlogs_to_reassign: pd.DataFrame = df[m].copy()\nlogs_to_reassign = logs_to_reassign.reset_index(drop=True).copy()\n\nlg.info(f\"# logs to re-assign: {len(logs_to_reassign)}\")\nreassigned_list: list[str] = []\n\n\n\n\nCode\n# * DOC\nfor i in range(len(logs_to_reassign)):\n    ticket_num = str(logs_to_reassign.loc[i][\"ticket_num\"])\n    note = str(logs_to_reassign.loc[i][\"log_action\"])\n    remaining = len(logs_to_reassign) - (i + 1)\n    lg.trace(f\"idx: {i} // remaining: {remaining} // ticket #: {ticket_num}\")\n\n    if ticket_num not in reassigned_list:\n        _ok = False\n        ctr = 0\n\n        while not _ok:\n            try:\n                bot.search_ticket_num(ticket_num)\n                bot.reassign_log(note)\n                time.sleep(1.8)\n            except:\n                time.sleep(1)\n                lg.warning(f\"retrying {ticket_num}\")\n                ctr += 1\n                if ctr &gt; 10:\n                    raise Exception(\"manual check required\")\n            else:\n                reassigned_list.append(ticket_num)\n                lg.trace(f\"re-assigned {ticket_num} w/ note: {note}\")\n                _ok = True\n\n\n\n\nCode\n# * DOC\nbot.shutdown()"
+    "section": "add tickets",
+    "text": "add tickets\n\n\nadd_logs\n\n add_logs (df:pandas.core.frame.DataFrame,\n           page:playwright.async_api._generated.Page)\n\nAdd logs.\n\n\n\n\n\n\n\n\n\nType\nDetails\n\n\n\n\ndf\nDataFrame\npd.DataFrame - w/ 2 columns: id (Employee #) and note\n\n\npage\nPage\nPage\n\n\nReturns\nNone",
+    "crumbs": [
+      "00_core"
+    ]
   }
 ]

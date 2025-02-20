@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Module deprecated since v1.0.1. Here for reference only.">
+<meta name="description" content="…">
 
 <title>00_core – harmony_automation</title>
 <style>
@@ -36,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,10 +71,10 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="00_core – harmony_automation">
-<meta property="og:description" content="Module deprecated since v1.0.1. Here for reference only.">
+<meta property="og:description" content="…">
 <meta property="og:site_name" content="harmony_automation">
 <meta name="twitter:title" content="00_core – harmony_automation">
-<meta name="twitter:description" content="Module deprecated since v1.0.1. Here for reference only.">
+<meta name="twitter:description" content="…">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -99,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">00_core</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./core.html">00_core</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -119,8 +119,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02_bots</span></a>
+  <a href="./core.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">00_core</span></a>
   </div>
 </li>
     </ul>
@@ -133,52 +133,43 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#init-fxs" id="toc-init-fxs" class="nav-link active" data-scroll-target="#init-fxs">00 init fxs</a>
+  <li><a href="#init" id="toc-init" class="nav-link active" data-scroll-target="#init">00 init</a>
   <ul class="collapse">
+  <li><a href="#setuplogger" id="toc-setuplogger" class="nav-link" data-scroll-target="#setuplogger">setupLogger</a></li>
+  <li><a href="#loadserializedlog" id="toc-loadserializedlog" class="nav-link" data-scroll-target="#loadserializedlog">loadSerializedLog</a></li>
   <li><a href="#fp" id="toc-fp" class="nav-link" data-scroll-target="#fp">fp</a></li>
-  <li><a href="#read_yaml_data" id="toc-read_yaml_data" class="nav-link" data-scroll-target="#read_yaml_data">read_yaml_data</a></li>
   <li><a href="#yaml_helper" id="toc-yaml_helper" class="nav-link" data-scroll-target="#yaml_helper">yaml_helper</a></li>
-  <li><a href="#get_latest_chromedriver" id="toc-get_latest_chromedriver" class="nav-link" data-scroll-target="#get_latest_chromedriver">get_latest_chromedriver</a></li>
   </ul></li>
-  <li><a href="#find-xpath-elements" id="toc-find-xpath-elements" class="nav-link" data-scroll-target="#find-xpath-elements">01 find xpath elements</a>
-  <ul class="collapse">
-  <li><a href="#search_for_xpath_elem" id="toc-search_for_xpath_elem" class="nav-link" data-scroll-target="#search_for_xpath_elem">search_for_xpath_elem</a></li>
-  </ul></li>
-  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">02 load data</a>
+  <li><a href="#helpers" id="toc-helpers" class="nav-link" data-scroll-target="#helpers">01 helpers</a>
   <ul class="collapse">
   <li><a href="#load_data" id="toc-load_data" class="nav-link" data-scroll-target="#load_data">load_data</a></li>
+  <li><a href="#appendreassignedtkt2yml" id="toc-appendreassignedtkt2yml" class="nav-link" data-scroll-target="#appendreassignedtkt2yml">appendReassignedTkt2Yml</a></li>
+  <li><a href="#appendclosedtkt2yml" id="toc-appendclosedtkt2yml" class="nav-link" data-scroll-target="#appendclosedtkt2yml">appendClosedTkt2Yml</a></li>
   </ul></li>
-  <li><a href="#harmony-specific-actions" id="toc-harmony-specific-actions" class="nav-link" data-scroll-target="#harmony-specific-actions">03 harmony specific actions</a>
+  <li><a href="#playwright" id="toc-playwright" class="nav-link" data-scroll-target="#playwright">02 Playwright</a>
   <ul class="collapse">
-  <li><a href="#login" id="toc-login" class="nav-link" data-scroll-target="#login">login</a>
-  <ul class="collapse">
-  <li><a href="#login-1" id="toc-login-1" class="nav-link" data-scroll-target="#login-1">login</a></li>
+  <li><a href="#start_page" id="toc-start_page" class="nav-link" data-scroll-target="#start_page">start_page</a></li>
+  <li><a href="#login" id="toc-login" class="nav-link" data-scroll-target="#login">login</a></li>
+  <li><a href="#export_logs" id="toc-export_logs" class="nav-link" data-scroll-target="#export_logs">export_logs</a></li>
+  <li><a href="#scrape_tickets" id="toc-scrape_tickets" class="nav-link" data-scroll-target="#scrape_tickets">scrape_tickets</a></li>
+  <li><a href="#scrape_and_concat" id="toc-scrape_and_concat" class="nav-link" data-scroll-target="#scrape_and_concat">scrape_and_concat</a></li>
   </ul></li>
-  <li><a href="#search-ticket" id="toc-search-ticket" class="nav-link" data-scroll-target="#search-ticket">search ticket</a>
+  <li><a href="#automation" id="toc-automation" class="nav-link" data-scroll-target="#automation">04 automation</a>
   <ul class="collapse">
-  <li><a href="#search_ticket_num" id="toc-search_ticket_num" class="nav-link" data-scroll-target="#search_ticket_num">search_ticket_num</a></li>
-  </ul></li>
-  <li><a href="#close-logs" id="toc-close-logs" class="nav-link" data-scroll-target="#close-logs">close logs</a>
+  <li><a href="#close-tickets" id="toc-close-tickets" class="nav-link" data-scroll-target="#close-tickets">close tickets</a>
   <ul class="collapse">
-  <li><a href="#chk_resolution_submitted" id="toc-chk_resolution_submitted" class="nav-link" data-scroll-target="#chk_resolution_submitted">chk_resolution_submitted</a></li>
-  <li><a href="#submit_res" id="toc-submit_res" class="nav-link" data-scroll-target="#submit_res">submit_res</a></li>
-  <li><a href="#edit_res" id="toc-edit_res" class="nav-link" data-scroll-target="#edit_res">edit_res</a></li>
-  <li><a href="#click_edit_log" id="toc-click_edit_log" class="nav-link" data-scroll-target="#click_edit_log">click_edit_log</a></li>
-  <li><a href="#view_log" id="toc-view_log" class="nav-link" data-scroll-target="#view_log">view_log</a></li>
   <li><a href="#close_log" id="toc-close_log" class="nav-link" data-scroll-target="#close_log">close_log</a></li>
+  <li><a href="#close_all_logs" id="toc-close_all_logs" class="nav-link" data-scroll-target="#close_all_logs">close_all_logs</a></li>
   </ul></li>
-  <li><a href="#re-assign-logs" id="toc-re-assign-logs" class="nav-link" data-scroll-target="#re-assign-logs">re-assign logs</a>
+  <li><a href="#re-assign-tickets" id="toc-re-assign-tickets" class="nav-link" data-scroll-target="#re-assign-tickets">re-assign tickets</a>
   <ul class="collapse">
   <li><a href="#reassign_log" id="toc-reassign_log" class="nav-link" data-scroll-target="#reassign_log">reassign_log</a></li>
+  <li><a href="#reassign_all_logs" id="toc-reassign_all_logs" class="nav-link" data-scroll-target="#reassign_all_logs">reassign_all_logs</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#scrape-fxs" id="toc-scrape-fxs" class="nav-link" data-scroll-target="#scrape-fxs">04 scrape fxs</a>
+  <li><a href="#add-tickets" id="toc-add-tickets" class="nav-link" data-scroll-target="#add-tickets">add tickets</a>
   <ul class="collapse">
-  <li><a href="#scrape_notes" id="toc-scrape_notes" class="nav-link" data-scroll-target="#scrape_notes">scrape_notes</a></li>
+  <li><a href="#add_logs" id="toc-add_logs" class="nav-link" data-scroll-target="#add_logs">add_logs</a></li>
   </ul></li>
-  <li><a href="#export-logs" id="toc-export-logs" class="nav-link" data-scroll-target="#export-logs">05 export logs</a>
-  <ul class="collapse">
-  <li><a href="#export_all_logs" id="toc-export_all_logs" class="nav-link" data-scroll-target="#export_all_logs">export_all_logs</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -193,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Module deprecated since v1.0.1. Here for reference only.
+    …
   </div>
 </div>
 
@@ -210,17 +201,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<section id="init-fxs" class="level1">
-<h1>00 init fxs</h1>
+<!-- ... -->
+<section id="init" class="level1">
+<h1>00 init</h1>
 <hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L31" target="_blank" style="float:right; font-size:smaller">source</a></p>
-<section id="fp" class="level3">
-<h3 class="anchored" data-anchor-id="fp">fp</h3>
+<section id="setuplogger" class="level3">
+<h3 class="anchored" data-anchor-id="setuplogger">setupLogger</h3>
 <blockquote class="blockquote">
-<pre><code> fp (relative_fp:str, base_dir:str='.')</code></pre>
+<pre><code> setupLogger (name:str='log', serialize:bool=False)</code></pre>
 </blockquote>
-<p>For referencing relative file paths in package directory.</p>
+<p><em>add handler attached to <code>&lt;name&gt;.log</code> @ trace level and up</em></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -232,64 +222,123 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>relative_fp</td>
+<td>name</td>
 <td>str</td>
-<td></td>
-<td>str - eg. “../dir/file.txt”</td>
+<td>log</td>
+<td>str</td>
 </tr>
 <tr class="even">
-<td>base_dir</td>
-<td>str</td>
-<td>.</td>
-<td>str</td>
+<td>serialize</td>
+<td>bool</td>
+<td>False</td>
+<td>bool</td>
 </tr>
 <tr class="odd">
 <td><strong>Returns</strong></td>
-<td><strong>str</strong></td>
+<td><strong>None</strong></td>
 <td></td>
-<td><strong>str</strong></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 <hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L55" target="_blank" style="float:right; font-size:smaller">source</a></p>
 </section>
-<section id="read_yaml_data" class="level3">
-<h3 class="anchored" data-anchor-id="read_yaml_data">read_yaml_data</h3>
+<section id="loadserializedlog" class="level3">
+<h3 class="anchored" data-anchor-id="loadserializedlog">loadSerializedLog</h3>
 <blockquote class="blockquote">
-<pre><code> read_yaml_data (file_path:str)</code></pre>
+<pre><code> loadSerializedLog (log_fp:str, incl_full_record:bool=False,
+                    incl_unix_ts:bool=False)</code></pre>
 </blockquote>
-<p>…</p>
+<p><em>-&gt; pd.DataFrame</em></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>file_path</td>
+<td>log_fp</td>
 <td>str</td>
+<td></td>
 <td>str</td>
 </tr>
 <tr class="even">
+<td>incl_full_record</td>
+<td>bool</td>
+<td>False</td>
+<td>bool</td>
+</tr>
+<tr class="odd">
+<td>incl_unix_ts</td>
+<td>bool</td>
+<td>False</td>
+<td>bool</td>
+</tr>
+<tr class="even">
 <td><strong>Returns</strong></td>
-<td><strong>dict</strong></td>
-<td><strong>dict</strong></td>
+<td><strong>DataFrame</strong></td>
+<td></td>
+<td><strong>pd.DataFrame</strong></td>
 </tr>
 </tbody>
 </table>
 <hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L75" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="fp" class="level3">
+<h3 class="anchored" data-anchor-id="fp">fp</h3>
+<blockquote class="blockquote">
+<pre><code> fp (_path:str='', ambiguous_err:bool=True)</code></pre>
+</blockquote>
+<p><em>For referencing relative file paths in dev env. Assumes core is always one level down from project root directory.</em></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>_path</td>
+<td>str</td>
+<td></td>
+<td>str - eg. <code>"../dat/some_file.csv"</code> == <code>"&lt;project_root&gt;/dat/some_file.csv&gt;"</code></td>
+</tr>
+<tr class="even">
+<td>ambiguous_err</td>
+<td>bool</td>
+<td>True</td>
+<td>bool - if True, will raise exception if path is ambiguous when running docs generation vs dev env</td>
+</tr>
+<tr class="odd">
+<td><strong>Returns</strong></td>
+<td><strong>str</strong></td>
+<td></td>
+<td><strong>str</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
 </section>
 <section id="yaml_helper" class="level3">
 <h3 class="anchored" data-anchor-id="yaml_helper">yaml_helper</h3>
 <blockquote class="blockquote">
-<pre><code> yaml_helper (fpath:str='./config.yaml', mode:str='r', data:dict=None)</code></pre>
+<pre><code> yaml_helper (fpath:str='./config.yaml', mode:str='r',
+              data:Optional[dict]=None)</code></pre>
 </blockquote>
-<p>Helper function to read, write, append to files in yaml format. Checks for duplicate keys if reading or appending.</p>
+<p><em>Helper function to read, write, append to files in yaml format. Checks for duplicate keys if reading or appending.</em></p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
@@ -320,9 +369,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>data</td>
-<td>dict</td>
+<td>Optional</td>
 <td>None</td>
-<td>dict - cannot be None if writing or appending</td>
+<td>cannot be None if writing or appending</td>
 </tr>
 <tr class="even">
 <td><strong>Returns</strong></td>
@@ -332,132 +381,25 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</section>
+</section>
+<section id="helpers" class="level1">
+<h1>01 helpers</h1>
 <hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L137" target="_blank" style="float:right; font-size:smaller">source</a></p>
-</section>
-<section id="get_latest_chromedriver" class="level3">
-<h3 class="anchored" data-anchor-id="get_latest_chromedriver">get_latest_chromedriver</h3>
-<blockquote class="blockquote">
-<pre><code> get_latest_chromedriver (chromedriver_path:str=None, dl_path:str=None)</code></pre>
-</blockquote>
-<p>Download latest stable chromedriver for win64.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 25%">
-<col style="width: 34%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Default</strong></th>
-<th><strong>Details</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>chromedriver_path</td>
-<td>str</td>
-<td>None</td>
-<td>str - if None, uses default path specified in config.yaml</td>
-</tr>
-<tr class="even">
-<td>dl_path</td>
-<td>str</td>
-<td>None</td>
-<td>str - if None, uses default path specified in config.yaml</td>
-</tr>
-<tr class="odd">
-<td><strong>Returns</strong></td>
-<td><strong>None</strong></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="find-xpath-elements" class="level1">
-<h1>01 find xpath elements</h1>
-<hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L185" target="_blank" style="float:right; font-size:smaller">source</a></p>
-<section id="search_for_xpath_elem" class="level3">
-<h3 class="anchored" data-anchor-id="search_for_xpath_elem">search_for_xpath_elem</h3>
-<blockquote class="blockquote">
-<pre><code> search_for_xpath_elem (xpath_str:str, time_limit:int=30)</code></pre>
-</blockquote>
-<p>While len of search list is 0, keep searching. If exceeds time limit (seconds, approximate), returns empty list.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Default</strong></th>
-<th><strong>Details</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>xpath_str</td>
-<td>str</td>
-<td></td>
-<td>str</td>
-</tr>
-<tr class="even">
-<td>time_limit</td>
-<td>int</td>
-<td>30</td>
-<td>int</td>
-</tr>
-<tr class="odd">
-<td><strong>Returns</strong></td>
-<td><strong>list</strong></td>
-<td></td>
-<td><strong>List[WebElement]</strong></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="load-data" class="level1">
-<h1>02 load data</h1>
-<p>One of the output files generated from the update process will be used to determine which logs to close and which to re-assign.</p>
-<hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L215" target="_blank" style="float:right; font-size:smaller">source</a></p>
 <section id="load_data" class="level3">
 <h3 class="anchored" data-anchor-id="load_data">load_data</h3>
 <blockquote class="blockquote">
 <pre><code> load_data ()</code></pre>
 </blockquote>
-<p>Load and clean one of the output files created from the update script - <code>for_log_tracker_...xlsx</code>. Warn if ticket # is missing.</p>
-</section>
-</section>
-<section id="harmony-specific-actions" class="level1">
-<h1>03 harmony specific actions</h1>
-<section id="login" class="level2">
-<h2 class="anchored" data-anchor-id="login">login</h2>
+<p><em>Load and clean one of the output files created from the update script - <code>for_log_tracker_...xlsx</code>. Warn if ticket # is missing.</em></p>
 <hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L239" target="_blank" style="float:right; font-size:smaller">source</a></p>
-<section id="login-1" class="level3">
-<h3 class="anchored" data-anchor-id="login-1">login</h3>
-<blockquote class="blockquote">
-<pre><code> login ()</code></pre>
-</blockquote>
-<p>Log in to Harmony. Credentials stored in cfg/config.yaml</p>
 </section>
-</section>
-<section id="search-ticket" class="level2">
-<h2 class="anchored" data-anchor-id="search-ticket">search ticket</h2>
-<hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L253" target="_blank" style="float:right; font-size:smaller">source</a></p>
-<section id="search_ticket_num" class="level3">
-<h3 class="anchored" data-anchor-id="search_ticket_num">search_ticket_num</h3>
+<section id="appendreassignedtkt2yml" class="level3">
+<h3 class="anchored" data-anchor-id="appendreassignedtkt2yml">appendReassignedTkt2Yml</h3>
 <blockquote class="blockquote">
-<pre><code> search_ticket_num (ticket_num:str)</code></pre>
+<pre><code> appendReassignedTkt2Yml (t_tkt:str|int, trk_fp:str)</code></pre>
 </blockquote>
-<p>Go to ticket number search page and search for <code>ticket_num</code></p>
+<p><em>Save to file in case of running over several sessions.</em></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -468,11 +410,50 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>ticket_num</td>
-<td>str</td>
-<td>ticket #</td>
+<td>t_tkt</td>
+<td>str | int</td>
+<td>str | int</td>
 </tr>
 <tr class="even">
+<td>trk_fp</td>
+<td>str</td>
+<td>str</td>
+</tr>
+<tr class="odd">
+<td><strong>Returns</strong></td>
+<td><strong>None</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="appendclosedtkt2yml" class="level3">
+<h3 class="anchored" data-anchor-id="appendclosedtkt2yml">appendClosedTkt2Yml</h3>
+<blockquote class="blockquote">
+<pre><code> appendClosedTkt2Yml (t_tkt:str|int, trk_fp:str)</code></pre>
+</blockquote>
+<p><em>Save to file in case of running over several sessions.</em></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>t_tkt</td>
+<td>str | int</td>
+<td>str | int</td>
+</tr>
+<tr class="even">
+<td>trk_fp</td>
+<td>str</td>
+<td>str</td>
+</tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>None</strong></td>
 <td></td>
@@ -481,85 +462,23 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </section>
 </section>
-<section id="close-logs" class="level2">
-<h2 class="anchored" data-anchor-id="close-logs">close logs</h2>
+<section id="playwright" class="level1">
+<h1>02 Playwright</h1>
 <hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L345" target="_blank" style="float:right; font-size:smaller">source</a></p>
-<section id="chk_resolution_submitted" class="level3">
-<h3 class="anchored" data-anchor-id="chk_resolution_submitted">chk_resolution_submitted</h3>
+<section id="start_page" class="level3">
+<h3 class="anchored" data-anchor-id="start_page">start_page</h3>
 <blockquote class="blockquote">
-<pre><code> chk_resolution_submitted ()</code></pre>
+<pre><code> start_page ()</code></pre>
 </blockquote>
-<p>Check if resolution successfully submitted and we are now on ticket view page w/ Back button and Timeline button. Needed because Harmony can be glitchy sometimes.</p>
+<p><em>-&gt; Page</em></p>
 <hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L327" target="_blank" style="float:right; font-size:smaller">source</a></p>
 </section>
-<section id="submit_res" class="level3">
-<h3 class="anchored" data-anchor-id="submit_res">submit_res</h3>
+<section id="login" class="level3">
+<h3 class="anchored" data-anchor-id="login">login</h3>
 <blockquote class="blockquote">
-<pre><code> submit_res ()</code></pre>
+<pre><code> login (page:playwright.async_api._generated.Page)</code></pre>
 </blockquote>
-<p>Clicks <code>submit</code></p>
-<hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L304" target="_blank" style="float:right; font-size:smaller">source</a></p>
-</section>
-<section id="edit_res" class="level3">
-<h3 class="anchored" data-anchor-id="edit_res">edit_res</h3>
-<blockquote class="blockquote">
-<pre><code> edit_res (comment:str='done')</code></pre>
-</blockquote>
-<p>Add <code>comment</code> to resolution input box</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Default</strong></th>
-<th><strong>Details</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>comment</td>
-<td>str</td>
-<td>done</td>
-<td>str</td>
-</tr>
-<tr class="even">
-<td><strong>Returns</strong></td>
-<td><strong>None</strong></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L297" target="_blank" style="float:right; font-size:smaller">source</a></p>
-</section>
-<section id="click_edit_log" class="level3">
-<h3 class="anchored" data-anchor-id="click_edit_log">click_edit_log</h3>
-<blockquote class="blockquote">
-<pre><code> click_edit_log ()</code></pre>
-</blockquote>
-<p>Clicks <code>edit</code> button</p>
-<hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L284" target="_blank" style="float:right; font-size:smaller">source</a></p>
-</section>
-<section id="view_log" class="level3">
-<h3 class="anchored" data-anchor-id="view_log">view_log</h3>
-<blockquote class="blockquote">
-<pre><code> view_log ()</code></pre>
-</blockquote>
-<p>Clicks <code>view log</code> of search result</p>
-<hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L361" target="_blank" style="float:right; font-size:smaller">source</a></p>
-</section>
-<section id="close_log" class="level3">
-<h3 class="anchored" data-anchor-id="close_log">close_log</h3>
-<blockquote class="blockquote">
-<pre><code> close_log (ticket_num:Union[str,int])</code></pre>
-</blockquote>
-<p>…</p>
+<p><em>-&gt; int</em></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -570,29 +489,25 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>ticket_num</td>
-<td>typing.Union[str, int]</td>
-<td>Union[str, int]</td>
+<td>page</td>
+<td>Page</td>
+<td></td>
 </tr>
 <tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>int</strong></td>
-<td><strong>returns 0 if successfully closed</strong></td>
+<td><strong>int - 0 == success</strong></td>
 </tr>
 </tbody>
 </table>
-</section>
-</section>
-<section id="re-assign-logs" class="level2">
-<h2 class="anchored" data-anchor-id="re-assign-logs">re-assign logs</h2>
 <hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L395" target="_blank" style="float:right; font-size:smaller">source</a></p>
-<section id="reassign_log" class="level3">
-<h3 class="anchored" data-anchor-id="reassign_log">reassign_log</h3>
+</section>
+<section id="export_logs" class="level3">
+<h3 class="anchored" data-anchor-id="export_logs">export_logs</h3>
 <blockquote class="blockquote">
-<pre><code> reassign_log (note:str)</code></pre>
+<pre><code> export_logs (page:playwright.async_api._generated.Page)</code></pre>
 </blockquote>
-<p>Actions to execute on ticket # search results page - re-assigns to colleague listed in config.yaml</p>
+<p><em>Assumes we’re on home page. Gets number of pending tickets, goes to <code>My Logs</code> page, and exports latest 80 tickets to <code>./logs.parquet</code></em></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -603,9 +518,9 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>note</td>
-<td>str</td>
-<td>str</td>
+<td>page</td>
+<td>Page</td>
+<td>Page</td>
 </tr>
 <tr class="even">
 <td><strong>Returns</strong></td>
@@ -614,19 +529,15 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-</section>
-</section>
-</section>
-<section id="scrape-fxs" class="level1">
-<h1>04 scrape fxs</h1>
 <hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L509" target="_blank" style="float:right; font-size:smaller">source</a></p>
-<section id="scrape_notes" class="level3">
-<h3 class="anchored" data-anchor-id="scrape_notes">scrape_notes</h3>
+</section>
+<section id="scrape_tickets" class="level3">
+<h3 class="anchored" data-anchor-id="scrape_tickets">scrape_tickets</h3>
 <blockquote class="blockquote">
-<pre><code> scrape_notes (input_ticket_strs:list[str])</code></pre>
+<pre><code> scrape_tickets (page:playwright.async_api._generated.Page,
+                 scrape_df:pandas.core.frame.DataFrame)</code></pre>
 </blockquote>
-<p>Goes to log and scrapes all comments. Text only, no attachments.</p>
+<p><em>Go to each ticket that needs scraping and scrape all notes/comments, formatted in chronological order.</em></p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 9%">
@@ -642,36 +553,66 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>input_ticket_strs</td>
-<td>list</td>
-<td>“[ticket_num] [employee_id] -” - eg. [‘2234567890 223456 -’, …]</td>
+<td>page</td>
+<td>Page</td>
+<td>Page</td>
+</tr>
+<tr class="even">
+<td>scrape_df</td>
+<td>DataFrame</td>
+<td>pd.DataFrame</td>
+</tr>
+<tr class="odd">
+<td><strong>Returns</strong></td>
+<td><strong>DataFrame</strong></td>
+<td><strong>pd.DataFrame - join w/ concatenated df and coalesce note</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="scrape_and_concat" class="level3">
+<h3 class="anchored" data-anchor-id="scrape_and_concat">scrape_and_concat</h3>
+<blockquote class="blockquote">
+<pre><code> scrape_and_concat (page:playwright.async_api._generated.Page)</code></pre>
+</blockquote>
+<p><em>Concatenate newly scraped data with existing data. Export to <code>./scrape_concat.parquet</code></em></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>page</td>
+<td>Page</td>
+<td>Page</td>
 </tr>
 <tr class="even">
 <td><strong>Returns</strong></td>
-<td><strong>DataFrame</strong></td>
-<td><strong>df w/ 2 columns: (1) <code>input_ticket_strs</code> and (2) scraped comments (<code>details</code>)</strong></td>
+<td><strong>None</strong></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 </section>
 </section>
-<section id="export-logs" class="level1">
-<h1>05 export logs</h1>
+<section id="automation" class="level1">
+<h1>04 automation</h1>
+<section id="close-tickets" class="level2">
+<h2 class="anchored" data-anchor-id="close-tickets">close tickets</h2>
 <hr>
-<p><a href="https://github.com/pyronone/harmony_automation/blob/main/harmony_automation/core.py#L641" target="_blank" style="float:right; font-size:smaller">source</a></p>
-<section id="export_all_logs" class="level3">
-<h3 class="anchored" data-anchor-id="export_all_logs">export_all_logs</h3>
+<section id="close_log" class="level3">
+<h3 class="anchored" data-anchor-id="close_log">close_log</h3>
 <blockquote class="blockquote">
-<pre><code> export_all_logs (_fp:str=None)</code></pre>
+<pre><code> close_log (page:playwright.async_api._generated.Page, tkt:str,
+            trk_fp:str, note:str='Done')</code></pre>
 </blockquote>
-<p>Export and saves all logs in cwd (default). Saves in both parquet and xlsx format.</p>
+<p><em>Close individual log.</em></p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 25%">
-<col style="width: 34%">
-<col style="width: 34%">
-</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -682,12 +623,30 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>_fp</td>
-<td>str</td>
-<td>None</td>
-<td>str - path to directory where result should be saved. If None, uses cwd.</td>
+<td>page</td>
+<td>Page</td>
+<td></td>
+<td>Page</td>
 </tr>
 <tr class="even">
+<td>tkt</td>
+<td>str</td>
+<td></td>
+<td>str</td>
+</tr>
+<tr class="odd">
+<td>trk_fp</td>
+<td>str</td>
+<td></td>
+<td>str</td>
+</tr>
+<tr class="even">
+<td>note</td>
+<td>str</td>
+<td>Done</td>
+<td>str</td>
+</tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>None</strong></td>
 <td></td>
@@ -695,8 +654,116 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<hr>
+</section>
+<section id="close_all_logs" class="level3">
+<h3 class="anchored" data-anchor-id="close_all_logs">close_all_logs</h3>
+<blockquote class="blockquote">
+<pre><code> close_all_logs ()</code></pre>
+</blockquote>
+<p><em>Close all logs.</em></p>
+</section>
+</section>
+<section id="re-assign-tickets" class="level2">
+<h2 class="anchored" data-anchor-id="re-assign-tickets">re-assign tickets</h2>
+<hr>
+<section id="reassign_log" class="level3">
+<h3 class="anchored" data-anchor-id="reassign_log">reassign_log</h3>
+<blockquote class="blockquote">
+<pre><code> reassign_log (page:playwright.async_api._generated.Page, tkt:str,
+               trk_fp:str, note:str)</code></pre>
+</blockquote>
+<p><em>Reassign individual log.</em></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>page</td>
+<td>Page</td>
+<td>Page</td>
+</tr>
+<tr class="even">
+<td>tkt</td>
+<td>str</td>
+<td>str</td>
+</tr>
+<tr class="odd">
+<td>trk_fp</td>
+<td>str</td>
+<td>str</td>
+</tr>
+<tr class="even">
+<td>note</td>
+<td>str</td>
+<td>str</td>
+</tr>
+<tr class="odd">
+<td><strong>Returns</strong></td>
+<td><strong>None</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="reassign_all_logs" class="level3">
+<h3 class="anchored" data-anchor-id="reassign_all_logs">reassign_all_logs</h3>
+<blockquote class="blockquote">
+<pre><code> reassign_all_logs ()</code></pre>
+</blockquote>
+<p><em>Re-assign all logs.</em></p>
+</section>
+</section>
+<section id="add-tickets" class="level2">
+<h2 class="anchored" data-anchor-id="add-tickets">add tickets</h2>
+<hr>
+<section id="add_logs" class="level3">
+<h3 class="anchored" data-anchor-id="add_logs">add_logs</h3>
+<blockquote class="blockquote">
+<pre><code> add_logs (df:pandas.core.frame.DataFrame,
+           page:playwright.async_api._generated.Page)</code></pre>
+</blockquote>
+<p><em>Add logs.</em></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 38%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>df</td>
+<td>DataFrame</td>
+<td>pd.DataFrame - w/ 2 columns: <code>id</code> (Employee #) and <code>note</code></td>
+</tr>
+<tr class="even">
+<td>page</td>
+<td>Page</td>
+<td>Page</td>
+</tr>
+<tr class="odd">
+<td><strong>Returns</strong></td>
+<td><strong>None</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 </section>
 </section>
 
