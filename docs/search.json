@@ -1,5 +1,16 @@
 [
   {
+    "objectID": "scripts/reassign_logs.html",
+    "href": "scripts/reassign_logs.html",
+    "title": "reassign logs",
+    "section": "",
+    "text": "import sys\n\nfrom harmony_automation import core as ha\n\n\npage = await ha.start_page()\nres = await ha.login(page)\nassert res == 0\n\nsys.exit(0)\n\n\ndf, latest = ha.load_reassign_tkts()\ndf.head(3)\n\n2025-04-27 12:12:45.542 | INFO     | harmony_automation.core:_load_latest_df:467 - Latest log tracker file: log_trk_20250424_16999.xlsx\n2025-04-27 12:12:45.755 | INFO     | harmony_automation.core:load_reassign_tkts:514 - # logs to re-assign: 42\n\n\n\n\n\n\n\n\n\nticket_num\nnote\n\n\n\n\n3\n250470014\nPossible OP \\n Address file updated \\n Guar en...\n\n\n4\n250466976\nPossible OP \\n Address file updated \\n Guar en...\n\n\n5\n250453731\nPossible OP \\n Address file updated \\n Guar en...\n\n\n\n\n\n\n\n\nfor i in range(len(df)):\n    try:\n        done: list[str] = ha.yaml_helper(latest, \"r\")[\"reassigned\"]\n    except FileNotFoundError:\n        done = []\n\n    tkt = str(df.iloc[i, 0])\n    note = str(df.iloc[i, 1])\n\n    if tkt not in done:\n        await ha.reassign_log(page, tkt, latest, note)\n\n\nawait page.close()",
+    "crumbs": [
+      "scripts",
+      "reassign logs"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "harmony_automation",
@@ -34,39 +45,20 @@
     "href": "core.html",
     "title": "00_core",
     "section": "",
-    "text": "setupLogger (name:str='log', serialize:bool=False)\n\nadd handler attached to &lt;name&gt;.log @ trace level and up\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nname\nstr\nlog\nstr\n\n\nserialize\nbool\nFalse\nbool\n\n\nReturns\nNone\n\n\n\n\n\n\n\n\n\n\n loadSerializedLog (log_fp:str, incl_full_record:bool=False,\n                    incl_unix_ts:bool=False)\n\n-&gt; pd.DataFrame\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nlog_fp\nstr\n\nstr\n\n\nincl_full_record\nbool\nFalse\nbool\n\n\nincl_unix_ts\nbool\nFalse\nbool\n\n\nReturns\nDataFrame\n\npd.DataFrame\n\n\n\n\n\n\n\n\n fp (_path:str='', ambiguous_err:bool=True)\n\nFor referencing relative file paths in dev env. Assumes core is always one level down from project root directory.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\n_path\nstr\n\nstr - eg. \"../dat/some_file.csv\" == \"&lt;project_root&gt;/dat/some_file.csv&gt;\"\n\n\nambiguous_err\nbool\nTrue\nbool - if True, will raise exception if path is ambiguous when running docs generation vs dev env\n\n\nReturns\nstr\n\nstr\n\n\n\n\n\n\n\n\n yaml_helper (fpath:str='./config.yaml', mode:str='r',\n              data:Optional[dict]=None)\n\nHelper function to read, write, append to files in yaml format. Checks for duplicate keys if reading or appending.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nfpath\nstr\n./config.yaml\nstr\n\n\nmode\nstr\nr\nstr - r / a / w\n\n\ndata\nOptional\nNone\ncannot be None if writing or appending\n\n\nReturns\ndict\n\ndict - data if reading, {‘r’: 0} if writing/appending",
+    "text": "00 init\n\n\nsetupLogger\n\n setupLogger (name:str='log', serialize:bool=False)\n\nadd handler attached to &lt;name&gt;.log @ trace level and up\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nname\nstr\nlog\nstr\n\n\nserialize\nbool\nFalse\nbool\n\n\nReturns\nNone\n\n\n\n\n\n\n\n\nloadSerializedLog\n\n loadSerializedLog (log_fp:str, incl_full_record:bool=False,\n                    incl_unix_ts:bool=False)\n\n-&gt; pd.DataFrame\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nlog_fp\nstr\n\nstr\n\n\nincl_full_record\nbool\nFalse\nbool\n\n\nincl_unix_ts\nbool\nFalse\nbool\n\n\nReturns\nDataFrame\n\npd.DataFrame\n\n\n\n\n\n\nfp\n\n fp (_path:str='', ambiguous_err:bool=True)\n\nFor referencing relative file paths in dev env. Assumes core is always one level down from project root directory.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\n_path\nstr\n\nstr - eg. \"../dat/some_file.csv\" == \"&lt;project_root&gt;/dat/some_file.csv&gt;\"\n\n\nambiguous_err\nbool\nTrue\nbool - if True, will raise exception if path is ambiguous when running docs generation vs dev env\n\n\nReturns\nstr\n\nstr\n\n\n\n\n\n\nyaml_helper\n\n yaml_helper (fpath:str='./config.yaml', mode:str='r',\n              data:Optional[dict]=None)\n\nHelper function to read, write, append to files in yaml format. Checks for duplicate keys if reading or appending.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nfpath\nstr\n./config.yaml\nstr\n\n\nmode\nstr\nr\nstr - r / a / w\n\n\ndata\nOptional\nNone\ncannot be None if writing or appending\n\n\nReturns\ndict\n\ndict - data if reading, {‘r’: 0} if writing/appending\n\n\n\n\n\n\n01 helpers\n\n\nload_close_tkts\n\n load_close_tkts ()\n\nLoad df w/ tickets to close\n\n\n\nload_reassign_tkts\n\n load_reassign_tkts ()\n\nLoad df w/ tickets to re-assign\n\n\n\nappendReassignedTkt2Yml\n\n appendReassignedTkt2Yml (t_tkt:str|int, trk_fp:str)\n\nSave to file in case of running over several sessions.\n\n\n\n\nType\nDetails\n\n\n\n\nt_tkt\nstr | int\nstr | int\n\n\ntrk_fp\nstr\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\n\nappendClosedTkt2Yml\n\n appendClosedTkt2Yml (t_tkt:str|int, trk_fp:str)\n\nSave to file in case of running over several sessions.\n\n\n\n\nType\nDetails\n\n\n\n\nt_tkt\nstr | int\nstr | int\n\n\ntrk_fp\nstr\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\n\n02 Playwright\n\n\nstart_page\n\n start_page ()\n\n-&gt; Page\n\n\n\nlogin\n\n login (page:playwright.async_api._generated.Page)\n\n-&gt; int\n\n\n\n\nType\nDetails\n\n\n\n\npage\nPage\n\n\n\nReturns\nint\nint - 0 == success\n\n\n\n\n\n\nsearch_ticket\n\n search_ticket (page:playwright.async_api._generated.Page, tkt:str)\n\nSearch by ticket #\n\n\n\n\nType\nDetails\n\n\n\n\npage\nPage\nPage\n\n\ntkt\nstr\nstr\n\n\nReturns\nint\nint - 0 == success\n\n\n\n\n\n\nexport_logs\n\n export_logs (page:playwright.async_api._generated.Page,\n              _out_fp:str='./logs.parquet')\n\nAssumes we’re on home page. Gets number of pending tickets, goes to My Logs page, and exports latest 80 tickets to ./logs.parquet\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\npage\nPage\n\nPage\n\n\n_out_fp\nstr\n./logs.parquet\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\n\n\nscrape_tickets\n\n scrape_tickets (page:playwright.async_api._generated.Page,\n                 scrape_df:pandas.core.frame.DataFrame)\n\nGo to each ticket that needs scraping and scrape all notes/comments, formatted in chronological order.\n\n\n\n\nType\nDetails\n\n\n\n\npage\nPage\nPage\n\n\nscrape_df\nDataFrame\npd.DataFrame\n\n\nReturns\nDataFrame\npd.DataFrame\n\n\n\n\n\n\nscrape_and_concat\n\n scrape_and_concat (page:playwright.async_api._generated.Page,\n                    existing_dat:pandas.core.frame.DataFrame,\n                    exported_logs:pandas.core.frame.DataFrame,\n                    _out_fp:str='./scrape_concat.parquet')\n\nIdentify logs that need scraping from exported logs. Run export_logs first. Then scrape and concatenate with existing data/notes. Export to ./scrape_concat.parquet.\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\npage\nPage\n\nPage\n\n\nexisting_dat\nDataFrame\n\npd.DataFrame\n\n\nexported_logs\nDataFrame\n\npd.DataFrame\n\n\n_out_fp\nstr\n./scrape_concat.parquet\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\n\n\n03 automation\n\n\nclose_log\n\n close_log (page:playwright.async_api._generated.Page, tkt:str,\n            trk_fp:str, note:str='Done')\n\nClose individual log.\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\npage\nPage\n\nPage\n\n\ntkt\nstr\n\nstr\n\n\ntrk_fp\nstr\n\nstr\n\n\nnote\nstr\nDone\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\n\n\nreassign_log\n\n reassign_log (page:playwright.async_api._generated.Page, tkt:str,\n               trk_fp:str, note:str)\n\nReassign individual log. Edit config to set colleague.\n\n\n\n\nType\nDetails\n\n\n\n\npage\nPage\nPage\n\n\ntkt\nstr\nstr\n\n\ntrk_fp\nstr\nstr\n\n\nnote\nstr\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\n\nadd_logs\n\n add_logs (df:pandas.core.frame.DataFrame,\n           page:playwright.async_api._generated.Page)\n\nAdd logs in bulk.\n\n\n\n\n\n\n\n\n\nType\nDetails\n\n\n\n\ndf\nDataFrame\npd.DataFrame - w/ 2 columns: id (Employee #) and note\n\n\npage\nPage\nPage\n\n\nReturns\nNone",
     "crumbs": [
       "00_core"
     ]
   },
   {
-    "objectID": "core.html#close-tickets",
-    "href": "core.html#close-tickets",
-    "title": "00_core",
-    "section": "close tickets",
-    "text": "close tickets\n\n\nclose_log\n\n close_log (page:playwright.async_api._generated.Page, tkt:str,\n            trk_fp:str, note:str='Done')\n\nClose individual log.\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\npage\nPage\n\nPage\n\n\ntkt\nstr\n\nstr\n\n\ntrk_fp\nstr\n\nstr\n\n\nnote\nstr\nDone\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\n\n\nclose_all_logs\n\n close_all_logs ()\n\nClose all logs.",
+    "objectID": "scripts/close_logs.html",
+    "href": "scripts/close_logs.html",
+    "title": "close logs",
+    "section": "",
+    "text": "import sys\n\nfrom harmony_automation import core as ha\n\n\npage = await ha.start_page()\nawait ha.login(page)\n\nsys.exit(0)\n\n\ndf, latest = ha.load_close_tkts()\ndf.head(3)\n\n2025-04-27 12:00:39.563 | INFO     | harmony_automation.core:_load_latest_df:467 - Latest log tracker file: log_trk_20250424_16999.xlsx\n2025-04-27 12:00:39.864 | INFO     | harmony_automation.core:load_close_tkts:498 - # logs to close: 61\n\n\n\n\n\n\n\n\n\nticket_num\nnote\n\n\n\n\n0\n250430647\nDone\n\n\n1\n250450465\nDone\n\n\n2\n250453729\nDone\n\n\n\n\n\n\n\n\nfor i in range(len(df)):\n    tkt = str(df.iloc[i, 0])\n    note = str((df.iloc[i, 1]))\n    await ha.close_log(page, tkt, latest, note)\n\n\nawait page.close()",
     "crumbs": [
-      "00_core"
-    ]
-  },
-  {
-    "objectID": "core.html#re-assign-tickets",
-    "href": "core.html#re-assign-tickets",
-    "title": "00_core",
-    "section": "re-assign tickets",
-    "text": "re-assign tickets\n\n\nreassign_log\n\n reassign_log (page:playwright.async_api._generated.Page, tkt:str,\n               trk_fp:str, note:str)\n\nReassign individual log.\n\n\n\n\nType\nDetails\n\n\n\n\npage\nPage\nPage\n\n\ntkt\nstr\nstr\n\n\ntrk_fp\nstr\nstr\n\n\nnote\nstr\nstr\n\n\nReturns\nNone\n\n\n\n\n\n\n\nreassign_all_logs\n\n reassign_all_logs ()\n\nRe-assign all logs.",
-    "crumbs": [
-      "00_core"
-    ]
-  },
-  {
-    "objectID": "core.html#add-tickets",
-    "href": "core.html#add-tickets",
-    "title": "00_core",
-    "section": "add tickets",
-    "text": "add tickets\n\n\nadd_logs\n\n add_logs (df:pandas.core.frame.DataFrame,\n           page:playwright.async_api._generated.Page)\n\nAdd logs.\n\n\n\n\n\n\n\n\n\nType\nDetails\n\n\n\n\ndf\nDataFrame\npd.DataFrame - w/ 2 columns: id (Employee #) and note\n\n\npage\nPage\nPage\n\n\nReturns\nNone",
-    "crumbs": [
-      "00_core"
+      "scripts",
+      "close logs"
     ]
   }
 ]

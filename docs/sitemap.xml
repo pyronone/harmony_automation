@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://pyronone.github.io/harmony_automation/scripts/reassign_logs.html</loc>
+    <lastmod>2025-04-27T16:13:06.733Z</lastmod>
+  </url>
+  <url>
     <loc>https://pyronone.github.io/harmony_automation/index.html</loc>
-    <lastmod>2025-02-20T01:20:46.973Z</lastmod>
+    <lastmod>2025-02-22T18:14:41.363Z</lastmod>
   </url>
   <url>
     <loc>https://pyronone.github.io/harmony_automation/core.html</loc>
-    <lastmod>2025-02-20T01:43:40.539Z</lastmod>
+    <lastmod>2025-04-27T16:10:37.300Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pyronone.github.io/harmony_automation/scripts/close_logs.html</loc>
+    <lastmod>2025-04-27T16:07:07.020Z</lastmod>
   </url>
 </urlset>
